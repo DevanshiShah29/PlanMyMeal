@@ -1,0 +1,29 @@
+#errorWrapper {
+  margin-top: 65px;
+  padding: 20px 80px 80px;
+  background-color: var(--white);
+
+  .container {
+    img {
+      height: calc(100vh - 220px);
+      width: 100%;
+      object-fit: contain;
+    }
+
+    .buttonWrapper {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      button {
+        font-size: 16px;
+        font-weight: 400;
+        color: #fff;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 8px;
+        background-color: var(--yellow);
+        cursor: pointer;
+      }
+    }
+  }
+}
