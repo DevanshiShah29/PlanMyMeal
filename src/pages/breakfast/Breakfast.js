@@ -25,7 +25,7 @@ export default function Breakfast() {
   return (
     <div id="breakfastWrapper">
       <div className="backIcon">
-        <ChevronLeftSharpIcon onClick={() => navigate(-1)} /> <p className="pageDescription">Breakfast recipes</p>
+        <ChevronLeftSharpIcon onClick={() => navigate(-1)} /> <h1 className="pageDescription">Breakfast recipes</h1>
       </div>
       <div className="searchWrapper">
         <div className="input-box">

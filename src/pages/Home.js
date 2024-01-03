@@ -6,11 +6,11 @@ import { homeData } from '../constant/HomeData';
 export default function Home() {
   return (
     <div id="homeWrapper">
-      <p className="pageDescription">Choose meal</p>
+      <h1 className="pageDescription">Choose meal</h1>
       <div className="homediv">
         {homeData.map((item) => {
           return (
-            <div className="card">
+            <div className="card" key={item.id}>
               <div className="img">
                 <img alt={item.slug} src={item.image} />
               </div>

@@ -17,8 +17,7 @@ export const faqs = [
     id: 6,
   },
   {
-    question:
-      'Exactly what are vitamins, nutrients, and minerals – what is the difference between then, and what do they do for my health?',
+    question: 'What are vitamins, nutrients, and minerals – what do they do for my health?',
     answer:
       "The main difference between them is the role they exert in the human body. Vitamins are organic substances that the body is incapable of producing or does not produce in sufficient quantity. The vitamins are required in small amounts for metabolism, such as blood formation (folic acid and B12), antioxidants (ascorbic and vitamin E), energy metabolism (thiamine, riboflavin, and pyridoxine), bone health (Vitamin D), and protein metabolism (vitamins A and K).\nNutrients provide nourishment for the body. Nutrients are carbohydrates, proteins, fats, minerals, vitamins, fiber, and water. The body energy is derived from a mix of some nutrients.\nMinerals are inorganic substances found in foods that are also responsible for the body's health, especially for bones, hormones and heart.",
     id: 7,

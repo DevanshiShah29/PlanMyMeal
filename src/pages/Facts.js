@@ -19,32 +19,33 @@ export default function Facts() {
           const parts = desc.split(/(https?:\/\/[^\s]+)/);
           const elements = parts.map((part) =>
             /^https?:\/\/[^\s]+$/i.test(part) ? (
-              <a key={key} href={part} target="_blank" rel="noopener noreferrer">
+              <a href={part} target="_blank" rel="noopener noreferrer" key={key + part.charAt(12)}>
                 {part}
               </a>
             ) : (
               part
             ),
           );
-          return (
-            <p key={key} className="disc">
-              {elements}
-            </p>
-          );
+          return <p className="disc">{elements}</p>;
         })
       : data;
   };
   return (
     <div id="factsWrapper">
-      <p className="pageDescription">Facts</p>
+      <h1 className="pageDescription">Facts</h1>
       {faqs.map((item) => {
         return (
           <MuiAccordion
             className="accordion"
             expanded={expanded === `panel${item.id}`}
             onChange={handleChange(`panel${item.id}`)}
+            key={item.id}
           >
-            <MuiAccordionSummary aria-controls={`panel${item.id}d-content`} id={`panel${item.id}d-header`}>
+            <MuiAccordionSummary
+              key={item.id}
+              aria-controls={`panel${item.id}d-content`}
+              id={`panel${item.id}d-header`}
+            >
               <Typography className="accordion-title">{item.question}</Typography>
               <ExpandMoreIcon />
             </MuiAccordionSummary>

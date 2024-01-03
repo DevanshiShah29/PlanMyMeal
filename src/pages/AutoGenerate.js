@@ -11,7 +11,6 @@ export default function AutoGenerate() {
   const [currentDateInfo, setCurrentDateInfo] = useState('');
   const [currentWeekNo, setCurrentWeekNo] = useState('');
   const [today, setToday] = useState('');
-  const [generateNew, setGenerateNew] = useState(false);
 
   const getRandomItems = (items, numberOfItems) => {
     const pickedItems = [];
@@ -48,7 +47,6 @@ export default function AutoGenerate() {
   };
 
   const handleGenerate = () => {
-    setGenerateNew(true);
     const randomBreakfastIds = getRandomItems(breakfastData, 7);
     const randomLunchIds = getRandomItems(LunchData, 7);
     const randomDinnerIds = getRandomItems(DinnerData, 7);
@@ -63,7 +61,6 @@ export default function AutoGenerate() {
 
   useEffect(() => {
     getCurrentWeek();
-    setGenerateNew('');
     let breakfast = sessionStorage.getItem('breakfast');
     let lunch = sessionStorage.getItem('lunch');
     let dinner = sessionStorage.getItem('dinner');
@@ -85,14 +82,13 @@ export default function AutoGenerate() {
       sessionStorage.setItem('lunch', JSON.stringify(lunchItems));
       sessionStorage.setItem('dinner', JSON.stringify(dinnerItems));
     }
+    // eslint-disable-next-line
   }, []);
-
-  useEffect(() => {}, [generateNew]);
 
   return (
     <div id="randomWrapper">
       <div className="headerWrapper">
-        <p className="pageDescription">Plan my week </p>
+        <h1 className="pageDescription">Plan my week </h1>
         <button className="button" onClick={() => handleGenerate()}>
           Generate
         </button>
@@ -106,13 +102,17 @@ export default function AutoGenerate() {
           <div className="filler"></div>
           <div className="filler"></div>
           {currentWeek.length > 0 &&
-            currentWeek.map((week) => {
-              return <div className={`${today === week ? 'dayName current' : 'dayName'}`}>{week}</div>;
+            currentWeek.map((week, index) => {
+              return (
+                <div className={`${today === week ? 'dayName current' : 'dayName'}`} key={index}>
+                  {week}
+                </div>
+              );
             })}
         </div>
-        <div class="row">
-          <div class="day">
-            <div class="day-number time">Breakfast</div>
+        <div className="row">
+          <div className="day">
+            <div className="day-number time">Breakfast</div>
           </div>
 
           {breakfastItems.length > 0 &&
@@ -129,9 +129,9 @@ export default function AutoGenerate() {
               );
             })}
         </div>
-        <div class="row">
-          <div class="day">
-            <div class="day-number time">Lunch</div>
+        <div className="row">
+          <div className="day">
+            <div className="day-number time">Lunch</div>
           </div>
           {lunchItems.length > 0 &&
             lunchItems.map((item, index) => {
@@ -147,9 +147,9 @@ export default function AutoGenerate() {
               );
             })}
         </div>
-        <div class="row">
-          <div class="day">
-            <div class="day-number time">Dinner</div>
+        <div className="row">
+          <div className="day">
+            <div className="day-number time">Dinner</div>
           </div>
           {dinnerItems.length > 0 &&
             dinnerItems.map((item, index) => {

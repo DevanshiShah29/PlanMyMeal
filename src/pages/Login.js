@@ -12,7 +12,8 @@ export default function Login() {
       (e.target.username.value === 'Ninad' && e.target.password.value === 'Ninad3110') ||
       (e.target.username.value === 'Devanshi' && e.target.password.value === 'Devanshi2901')
     ) {
-      localStorage.setItem('authentication', e.target.username.value);
+      const base64Encoded = btoa(e.target.username.value);
+      localStorage.setItem('authentication', base64Encoded);
       navigate('/');
       toast.success('Login successfully!');
     } else {

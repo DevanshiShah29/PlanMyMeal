@@ -30,6 +30,7 @@
   margin-left: 5px;
   margin-bottom: 25px;
   position: relative;
+  font-weight: 500;
 
   &:after {
     display: block;
@@ -46,6 +47,7 @@ p.disc {
   padding: 7px 15px;
   text-indent: -0.75em;
 }
+
 p.disc::before {
   display: inline-block;
   content: '';
@@ -88,9 +90,30 @@ p.disc::before {
     position: fixed;
     transition: all 0.3s ease-in-out;
 
+    @media only screen and (max-width: 767px) {
+      width: 100%;
+      z-index: 99;
+
+      ul a {
+        @media only screen and (max-width: 767px) {
+          opacity: 1;
+        }
+      }
+    }
+
     &.collapsed {
       width: 55px;
       transition: all 0.3s ease-in-out;
+
+      @media only screen and (max-width: 767px) {
+        width: 0px;
+
+        ul a {
+          @media only screen and (max-width: 767px) {
+            opacity: 0;
+          }
+        }
+      }
     }
 
     .topsidebar {
@@ -99,6 +122,22 @@ p.disc::before {
       padding: 0 15px 30px;
       min-height: 68px;
       align-items: center;
+
+      .hamburger {
+        display: block;
+
+        @media only screen and (max-width: 767px) {
+          display: none;
+        }
+      }
+
+      .close {
+        display: none;
+
+        @media only screen and (max-width: 767px) {
+          display: block;
+        }
+      }
 
       svg {
         color: var(--white);
@@ -116,17 +155,6 @@ p.disc::before {
       a {
         color: var(--lightMain);
         display: block;
-      }
-
-      .active li {
-        background-color: #594f8d;
-      }
-
-      .active {
-        color: var(--white);
-      }
-
-      li {
         padding: 15px;
         border-bottom: 1px solid var(--lightMain);
         border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -137,7 +165,17 @@ p.disc::before {
         justify-content: left;
         align-items: center;
         white-space: nowrap;
+      }
 
+      a.active {
+        background-color: #594f8d;
+      }
+
+      a.active {
+        color: var(--white);
+      }
+
+      li {
         svg {
           color: var(--lightMain);
           margin-right: 15px;
@@ -159,9 +197,27 @@ p.disc::before {
     margin-left: 250px;
     transition: all 0.3s ease-in-out;
 
+    @media only screen and (max-width: 767px) {
+      margin-left: 0;
+    }
+
+    .hamburger {
+      display: none;
+    }
+
+    @media only screen and (max-width: 767px) {
+      .hamburger {
+        display: block;
+      }
+    }
+
     &.collapsed {
       margin-left: 55px;
       transition: all 0.3s ease-in-out;
+
+      @media only screen and (max-width: 767px) {
+        margin-left: 0px;
+      }
     }
 
     .header {
@@ -175,8 +231,13 @@ p.disc::before {
       display: flex;
       justify-content: space-between;
 
+      .mobileBtn {
+        display: flex;
+      }
+
       a {
         cursor: pointer;
+        margin-right: 15px;
       }
     }
 

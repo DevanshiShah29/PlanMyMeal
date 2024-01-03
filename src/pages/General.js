@@ -13,7 +13,7 @@ export default function General() {
 
   return (
     <div id="generalWrapper">
-      <p className="pageDescription">Nutritional Information</p>
+      <h1 className="pageDescription">Nutritional Information</h1>
       <div className="content">
         {data.map((item) => {
           return (
