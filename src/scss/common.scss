@@ -46,6 +46,10 @@
 p.disc {
   padding: 7px 15px;
   text-indent: -0.75em;
+
+  a {
+    word-break: break-word;
+  }
 }
 
 p.disc::before {
@@ -86,7 +90,6 @@ p.disc::before {
     width: 250px;
     height: 100%;
     background: var(--main);
-    padding: 30px 0px;
     position: fixed;
     transition: all 0.3s ease-in-out;
 
@@ -97,6 +100,7 @@ p.disc::before {
       ul a {
         @media only screen and (max-width: 767px) {
           opacity: 1;
+          transition: all 0.3s ease-in-out;
         }
       }
     }
@@ -111,7 +115,13 @@ p.disc::before {
         ul a {
           @media only screen and (max-width: 767px) {
             opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease-in-out;
           }
+        }
+
+        .close {
+          display: none !important;
         }
       }
     }
@@ -119,7 +129,7 @@ p.disc::before {
     .topsidebar {
       display: flex;
       justify-content: space-between;
-      padding: 0 15px 30px;
+      padding: 10px 15px;
       min-height: 68px;
       align-items: center;
 
@@ -146,8 +156,8 @@ p.disc::before {
 
       h2 {
         color: var(--white);
-        text-transform: uppercase;
         text-align: center;
+        font-weight: 500;
       }
     }
 

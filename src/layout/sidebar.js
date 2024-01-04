@@ -28,7 +28,7 @@ export default function Sidebar(props) {
   return (
     <div className={`${expand ? 'sidebar' : 'sidebar collapsed'}`}>
       <div className="topsidebar">
-        {expand && <h2>Sidebar</h2>}
+        {expand && <h2>MealPlanner</h2>}
         <MenuTwoToneIcon className="hamburger" onClick={handleToggleSidebar} />
         <CloseIcon className="close" onClick={handleToggleSidebar} />
       </div>

@@ -25,7 +25,7 @@ export const faqs = [
   {
     question: 'What are the 5 parts of a healthy plate?',
     answer:
-      'the five food groups are Fruits, Vegetables, Grains, Protein Foods, and Dairy.\nRef: https://www.healthline.com/nutrition/starchy-vs-non-starchy-vegetables',
+      'the five food groups are Fruits, Vegetables, Grains, Protein Foods, and Dairy.\nRef:  https://www.healthline.com/nutrition/starchy-vs-non-starchy-vegetables',
     id: 9,
   },
   {
@@ -37,7 +37,7 @@ export const faqs = [
   {
     question: 'Which fruits and vegetables are non-starchy?',
     answer:
-      'Fruits: Melons, berries, oranges, tangerines, grapefruit, lemons, peaches, plums, apricots, nectarines, cherries, papayas.\nVegetables: Vegetables can be classified into two main types based on their starch content. Starchy vegetables include potato, corn, peas, and lentils, while non-starchy varieties include Radishes, carrots, leafy vegetables, kale, cabbage, Brussels sprouts, pumpkin, cucumber, zucchini, spring onions, celery, asparagus, tomato, pepper, mushroom, broccoli, okra, eggplant, cauliflower, spinach, onions, garlic, beets, carrots, parsnips, turnips, and rutabagas\nRef: https://www.healthline.com/nutrition/starchy-vs-non-starchy-vegetables',
+      'Fruits: Melons, berries, oranges, tangerines, grapefruit, lemons, peaches, plums, apricots, nectarines, cherries, papayas.\nVegetables: Vegetables can be classified into two main types based on their starch content. Starchy vegetables include potato, corn, peas, and lentils, while non-starchy varieties include Radishes, carrots, leafy vegetables, kale, cabbage, Brussels sprouts, pumpkin, cucumber, zucchini, spring onions, celery, asparagus, tomato, pepper, mushroom, broccoli, okra, eggplant, cauliflower, spinach, onions, garlic, beets, carrots, parsnips, turnips, and rutabagas\nRef:  https://www.healthline.com/nutrition/starchy-vs-non-starchy-vegetables',
     id: 10,
   },
   {
@@ -67,7 +67,7 @@ export const faqs = [
   {
     question: 'What are complex carbs and simple carbs?',
     answer:
-      'Complex carbohydrates are digested more slowly and release glucose into the bloodstream more gradually. Simple carbohydrates are digested quickly and spike blood sugar faster and higher.\nCarbohydrates are made up of three components: fiber, starch, and sugar .\nFiber and starch are complex carbs, while sugar is a simple carb. Depending on how much of each of these is found in a food determines its nutrient quality.\nSimple Carb: Simple carbs equal simplistic nutrition. raw sugar, brown sugar, corn syrup and high-fructose corn syrup, glucose, fructose, and sucrose, fruit juice concentrate\nComplex Carb: The more complex the carb, the better. Complex carbs pack in more nutrients than simple carbs. They’re higher in fiber and digest more slowly. This also makes them more filling, which means they’re a good option for weight control. Fiber and starch are the two types of complex carbohydrates. Fiber is especially important because it promotes bowel regularity and helps to control cholesterol. Such as Whole grains, Fiber-rich fruits and Vegetables, beans\nRef: https://www.healthline.com/health/food-nutrition/simple-carbohydrates-complex-carbohydrates ',
+      'Complex carbohydrates are digested more slowly and release glucose into the bloodstream more gradually. Simple carbohydrates are digested quickly and spike blood sugar faster and higher.\nCarbohydrates are made up of three components: fiber, starch, and sugar .\nFiber and starch are complex carbs, while sugar is a simple carb. Depending on how much of each of these is found in a food determines its nutrient quality.\nSimple Carb: Simple carbs equal simplistic nutrition. raw sugar, brown sugar, corn syrup and high-fructose corn syrup, glucose, fructose, and sucrose, fruit juice concentrate\nComplex Carb: The more complex the carb, the better. Complex carbs pack in more nutrients than simple carbs. They’re higher in fiber and digest more slowly. This also makes them more filling, which means they’re a good option for weight control. Fiber and starch are the two types of complex carbohydrates. Fiber is especially important because it promotes bowel regularity and helps to control cholesterol. Such as Whole grains, Fiber-rich fruits and Vegetables, beans\nRef:  https://www.healthline.com/health/food-nutrition/simple-carbohydrates-complex-carbohydrates ',
     id: 14,
   },
   {
@@ -79,7 +79,7 @@ export const faqs = [
   {
     question: 'What are the protein Sources for vegans and vegetarians?',
     answer:
-      'Poorly planned or highly processed vegan diets may increaseTrusted Source your chance of developing nutrient deficiencies, especially in vitamin B12, iodine, iron, calcium, zinc, and long-chain omega-3s.\nThe following are plant foods that contain a high amount of protein per serving i.e. Tofu, tempeh, edamame, Lentils, Beans, Nutritional yeast, Green peas, Oats and oatmeal, Nuts, nut butter, and other seeds, Protein-rich fruits, and vegetables\nRef: https://www.healthline.com/nutrition/protein-for-vegans-vegetarians#faq ',
+      'Poorly planned or highly processed vegan diets may increaseTrusted Source your chance of developing nutrient deficiencies, especially in vitamin B12, iodine, iron, calcium, zinc, and long-chain omega-3s.\nThe following are plant foods that contain a high amount of protein per serving i.e. Tofu, tempeh, edamame, Lentils, Beans, Nutritional yeast, Green peas, Oats and oatmeal, Nuts, nut butter, and other seeds, Protein-rich fruits, and vegetables\nRef:  https://www.healthline.com/nutrition/protein-for-vegans-vegetarians#faq ',
     id: 16,
   },
   {
@@ -91,7 +91,7 @@ export const faqs = [
   {
     question: 'What are the minerals rich foods?',
     answer:
-      'Minerals are divided into two categories based on how much the human body needs. Macrominerals are needed in larger amounts and include calcium, potassium, sodium, chloride, phosphorus, and magnesium \nMacrominerals can be found in: Nuts and seeds, Cruciferous vegetables, Beans, Cocoa, Avocados, Berries, Yogurt and cheese, amaranth, millet, quinoa, and sorghum, Starchy vegetables, Tropical fruits, Leafy greens\nRef: https://www.healthline.com/nutrition/foods-with-minerals ',
+      'Minerals are divided into two categories based on how much the human body needs. Macrominerals are needed in larger amounts and include calcium, potassium, sodium, chloride, phosphorus, and magnesium \nMacrominerals can be found in: Nuts and seeds, Cruciferous vegetables, Beans, Cocoa, Avocados, Berries, Yogurt and cheese, amaranth, millet, quinoa, and sorghum, Starchy vegetables, Tropical fruits, Leafy greens\nRef:  https://www.healthline.com/nutrition/foods-with-minerals ',
     id: 18,
   },
   {
@@ -103,7 +103,7 @@ export const faqs = [
   {
     question: 'What are the benefits of vitamins?',
     answer:
-      'Vitamin A: Vitamin A helps with your vision and the formation and maintenance of your teeth, bones, skin, and soft tissues.\nVitamin B6: B6 helps you maintain healthy brain function and form the red blood cells you need.\nVitamin B12: B12 helps maintain your central nervous system, it’s also important for metabolism and the formation of red blood cells.\nVitamin C: Vitamin C helps maintain healthy tissue and promotes dental health. It’s also important for wound healing.\nVitamin D: You need vitamin D so that your body can absorb enough calcium and develop healthy teeth and bones.\nVitamin E: Vitamin E is important for trusted Source organ function.\nVitamin K: Vitamin K helps your blood clot.\nThiamine: Thiamine is essential for trusted Sources turning the carbohydrates you eat into energy you can use.\nRiboflavin: Riboflavin helps your bodyTrusted Source produce red blood cells.\nNiacin: Niacin helps maintainTrusted Source your skin and nervous system.\nPathogenic acid: Pathogenic acid is important forTrusted Source metabolism and the production of hormones and cholesterol.\nBiotin: Biotin helps the bodyTrusted Source metabolize proteins and carbohydrates and helps the body produce cholesterol and hormones.\nFolate: Folate helps produce trusted Source red blood cells and DNA.\nRef:https://www.medicalnewstoday.com/articles/195878, https://www.healthline.com/health/nutrition/what-are-vitamins',
+      'Vitamin A: Vitamin A helps with your vision and the formation and maintenance of your teeth, bones, skin, and soft tissues.\nVitamin B6: B6 helps you maintain healthy brain function and form the red blood cells you need.\nVitamin B12: B12 helps maintain your central nervous system, it’s also important for metabolism and the formation of red blood cells.\nVitamin C: Vitamin C helps maintain healthy tissue and promotes dental health. It’s also important for wound healing.\nVitamin D: You need vitamin D so that your body can absorb enough calcium and develop healthy teeth and bones.\nVitamin E: Vitamin E is important for trusted Source organ function.\nVitamin K: Vitamin K helps your blood clot.\nThiamine: Thiamine is essential for trusted Sources turning the carbohydrates you eat into energy you can use.\nRiboflavin: Riboflavin helps your bodyTrusted Source produce red blood cells.\nNiacin: Niacin helps maintainTrusted Source your skin and nervous system.\nPathogenic acid: Pathogenic acid is important forTrusted Source metabolism and the production of hormones and cholesterol.\nBiotin: Biotin helps the bodyTrusted Source metabolize proteins and carbohydrates and helps the body produce cholesterol and hormones.\nFolate: Folate helps produce trusted Source red blood cells and DNA.\nRef: https://www.medicalnewstoday.com/articles/195878, https://www.healthline.com/health/nutrition/what-are-vitamins',
     id: 20,
   },
   {
@@ -129,7 +129,7 @@ export const faqs = [
   {
     question: 'Which type of fat is healthy?',
     answer:
-      "Any fat that's not used by your body's cells or turned into energy is converted into body fat.\nSaturated and trans fats are bad for you. Less than 7% of your total daily calories should come from saturated fats. Less than 1% should come from trans fats \nMonounsaturated fat and polyunsaturated fat are 'healthy' fats. They can help to maintain healthy cholesterol levels. Cholesterol is a fatty substance in your blood. Saturated fat and trans fat are 'unhealthy' fats.\nRef: https://healthline.com/health/heart-disease/good-fats-vs-bad-fats",
+      "Any fat that's not used by your body's cells or turned into energy is converted into body fat.\nSaturated and trans fats are bad for you. Less than 7% of your total daily calories should come from saturated fats. Less than 1% should come from trans fats \nMonounsaturated fat and polyunsaturated fat are 'healthy' fats. They can help to maintain healthy cholesterol levels. Cholesterol is a fatty substance in your blood. Saturated fat and trans fat are 'unhealthy' fats.\nRef:  https://healthline.com/health/heart-disease/good-fats-vs-bad-fats",
     id: 23,
   },
   {

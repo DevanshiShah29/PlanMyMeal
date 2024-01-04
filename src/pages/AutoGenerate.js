@@ -140,7 +140,7 @@ export default function AutoGenerate() {
                   <img src={item?.image} alt={item?.name} className="image" />
                   <div className="overlay">
                     <div className="text">
-                      <Link to={'/breakfast/' + item.id}> {item?.name}</Link>
+                      <Link to={'/lunch/' + item.id}> {item?.name}</Link>
                     </div>
                   </div>
                 </div>
@@ -158,7 +158,7 @@ export default function AutoGenerate() {
                   <img src={item?.image} alt={item?.name} className="image" />
                   <div className="overlay">
                     <div className="text">
-                      <Link to={'/breakfast/' + item.id}> {item?.name}</Link>
+                      <Link to={'/dinner/' + item.id}> {item?.name}</Link>
                     </div>
                   </div>
                 </div>

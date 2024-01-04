@@ -28,7 +28,6 @@ export default function General() {
               <div className="back">
                 <div>
                   <p>{item.backParagraph}</p>
-                  <button className="button">{item.btnText}</button>
                 </div>
               </div>
             </div>
