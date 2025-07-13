@@ -23,25 +23,25 @@ const AddRecipe = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    const fetchRecipeById = async (recipeId) => {
+      try {
+        setLoading(true);
+        const data = await api(`/recipes/${recipeId}`, {
+          method: 'GET',
+        });
+        form.setFieldsValue(data);
+        setIsEditMode(true);
+      } catch (error) {
+        message.error('Failed to load recipe details');
+      } finally {
+        setLoading(false);
+      }
+    };
+
     if (id) {
-      setIsEditMode(true);
       fetchRecipeById(id);
     }
   }, [id]);
-
-  const fetchRecipeById = async (recipeId) => {
-    try {
-      setLoading(true);
-      const data = await api(`/recipes/${recipeId}`, {
-        method: 'GET',
-      });
-      form.setFieldsValue(data);
-    } catch (error) {
-      message.error('Failed to load recipe details');
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const onFinish = async (values) => {
     try {
