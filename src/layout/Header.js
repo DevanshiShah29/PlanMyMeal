@@ -33,9 +33,7 @@ const SideBarLayout = () => {
           <div className="header">
             Welcome {username}! {!regexp.test(details) && 'Have a health conscious day.'}
             <div className="mobileBtn">
-              <a href="#" role="button" onClick={handleLogout}>
-                Logout
-              </a>
+              <button onClick={handleLogout}>Logout</button>
               <MenuTwoToneIcon className="hamburger" onClick={() => setIsMobileClick(true)} />
             </div>
           </div>

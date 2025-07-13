@@ -41,7 +41,7 @@ const AddRecipe = () => {
     if (id) {
       fetchRecipeById(id);
     }
-  }, [id]);
+  }, [id, form]);
 
   const onFinish = async (values) => {
     try {
