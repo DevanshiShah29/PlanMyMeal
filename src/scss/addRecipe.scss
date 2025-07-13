@@ -1,0 +1,259 @@
+.add-recipe-page {
+  padding: 2rem;
+  padding-top: 5rem;
+
+  .title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: var(--grey);
+    margin-bottom: 2rem;
+  }
+  .ant-card-head {
+    padding: 0;
+    min-height: auto;
+  }
+
+  .ant-form {
+    margin: 0 auto;
+
+    input,
+    .ant-select-selector {
+      min-height: 40px;
+    }
+
+    .ant-select-arrow {
+      top: 61%;
+    }
+
+    .ant-select-dropdown {
+      max-height: 150px;
+      overflow-y: auto;
+    }
+
+    .card-section {
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    .card-header {
+      background: linear-gradient(to right, #f97316, #f59e0b);
+      background: var(--main);
+      color: var(--white);
+      font-weight: bold;
+      padding: 0.8rem 1.2rem;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .green-header {
+      background: linear-gradient(to right, #22c55e, #10b981);
+      background: var(--main);
+    }
+
+    .blue-header {
+      background: linear-gradient(to right, #0ea5e9, #38bdf8);
+      background: var(--main);
+    }
+
+    .purple-header {
+      // background: linear-gradient(to right, #a855f7, #ec4899);
+      background: var(--main);
+    }
+
+    .submit-button {
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .ant-btn {
+        padding: 0.8rem 2rem;
+        font-weight: 500;
+        border-radius: 8px;
+        background: var(--main);
+        border: none;
+      }
+      .ant-btn:first-child {
+        margin-right: 15px;
+        background: var(--white);
+      }
+    }
+  }
+}
+
+.recipe-table-wrapper,
+.fact-table-wrapper,
+.food-info-table-wrapper,
+.add-fact-container,
+.add-food-info {
+  padding: 2rem;
+  padding-top: 5rem;
+
+  .ant-typography-secondary {
+    font-size: 14px;
+  }
+  .table-heading {
+    margin-bottom: 0;
+  }
+
+  .recipe-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .recipe-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+}
+
+.generate-ai-btn {
+  background: linear-gradient(270deg, var(--pink), var(--main));
+  color: white;
+  font-weight: 600;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  font-size: 16px;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(270deg, var(--pink), var(--main)) !important;
+    color: var(--white) !important;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0.1) 100%
+    );
+    transform: skewX(-20deg);
+  }
+
+  &:hover::after {
+    animation: shimmer 2.5s infinite;
+  }
+
+  .ai-icon {
+    font-size: 18px;
+    display: inline-block;
+    animation: sparkle 1.8s infinite;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+@keyframes sparkle {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+.common-btn {
+  &.ant-btn-primary {
+    background-color: var(--main);
+    border-color: var(--main);
+    color: var(--white);
+
+    &:hover,
+    &:focus {
+      background-color: var(--mainHover) !important;
+      border-color: var(--mainHover);
+      color: var(--white);
+    }
+  }
+  &.ant-btn-default {
+    &:hover,
+    &:focus {
+      border-color: var(--main) !important;
+      color: var(--main) !important;
+    }
+  }
+}
+
+/* Override AntD input focus styles */
+.common-input {
+  padding: 8px 12px;
+  font-size: 16px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  &.ant-input:focus,
+  &.ant-input-focused,
+  &.ant-input:focus-visible,
+  textarea:focus {
+    border-color: var(--main) !important;
+    box-shadow: 0 0 0 2px rgba(97, 95, 255, 0.2);
+    outline: none;
+  }
+  /* Hover style */
+  &.ant-input:hover,
+  textarea:hover {
+    border-color: var(--main) !important;
+  }
+}
+
+.login-card {
+  min-height: 500px;
+  padding: 2rem;
+  box-shadow:
+    0 10px 15px -3px var(--tw-shadow-color, #0000001a),
+    0 4px 6px -4px var(--tw-shadow-color, #0000001a);
+  border-radius: 10px;
+
+  img {
+    width: 100%;
+  }
+}
+
+.emptyWrapper {
+  background: var(--white);
+  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+}

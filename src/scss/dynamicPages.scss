@@ -1,5 +1,5 @@
 #homeWrapper {
-  background: transparent;
+  background: var(--trasparent);
   margin-top: 60px;
   padding: 20px;
 
@@ -121,7 +121,7 @@
       position: relative;
       height: 60px;
       width: calc(100% - 20px);
-      background: #fff;
+      background: var(--white);
       margin: 0px 0 20px;
       border-radius: 8px;
 
@@ -142,7 +142,7 @@
     .input-box i {
       left: 20px;
       font-size: 30px;
-      color: #707070;
+      color: var(--grey);
     }
 
     .input-box input {
@@ -153,7 +153,7 @@
       font-weight: 400;
       border: none;
       padding: 0 155px 0 50px;
-      background-color: transparent;
+      background-color: var(--trasparent);
 
       @media only screen and (max-width: 767px) {
         padding-right: 0px;
@@ -163,7 +163,7 @@
     .button {
       font-size: 16px;
       font-weight: 400;
-      color: #fff;
+      color: var(--white);
       border: none;
       padding: 12px 30px;
       border-radius: 8px;
@@ -188,15 +188,23 @@
       box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
       border-radius: 8px;
       position: relative;
-      background-color: #fff;
+      background-color: var(--white);
+
+      transition:
+        transform 0.3s ease-in-out,
+        box-shadow 0.3s ease-in-out;
+      cursor: pointer;
+      border-radius: 8px;
+      overflow: hidden;
 
       @media only screen and (max-width: 767px) {
         width: 100%;
       }
 
-      // &:hover .recipeImage {
-      //     transform: scaleY(1.1);
-      // }
+      &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+      }
 
       .recipeImage {
         width: 100%;
@@ -209,7 +217,7 @@
       .time {
         position: absolute;
         opacity: 0.7;
-        background-color: #fff;
+        background-color: var(--white);
         padding: 8px;
         border-radius: 20px;
         top: 10px;
@@ -234,12 +242,12 @@
         padding: 20px;
 
         h3 {
-          margin: 5px 0;
+          margin: 5px 0 10px;
+          font-weight: bold;
         }
 
         p {
           padding: 20px 0;
-          min-height: 195px;
         }
 
         .kcalCount {
@@ -260,7 +268,7 @@
         .medium,
         .hard {
           text-transform: capitalize;
-          padding: 5px 15px;
+          padding: 10px 15px;
           border-radius: 10px;
           display: inline-block;
 
@@ -309,7 +317,7 @@
   padding: 20px;
 
   .card {
-    background-color: #fff;
+    background-color: var(--white);
     padding: 30px;
     border-radius: 8px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -414,7 +422,7 @@
         height: 5px;
         width: 5px;
         margin-right: 0.5rem;
-        background-color: #080808;
+        background-color: var(--black);
         margin-right: 10px;
         margin-bottom: 3px;
       }
@@ -422,6 +430,8 @@
       ul.disc li {
         padding: 7px 15px;
         text-indent: -0.75em;
+        line-height: 1.6;
+        font-size: 16px;
       }
 
       ul.numbers > li {
@@ -429,10 +439,12 @@
         counter-increment: step-counter;
         font-size: 16px;
         padding: 7px 22px;
+        line-height: 1.6;
+        font-size: 16px;
       }
 
       ul.numbers > li:before {
-        color: #000;
+        color: var(--black);
         content: counter(step-counter) '.';
         font-size: 16px;
         position: absolute;

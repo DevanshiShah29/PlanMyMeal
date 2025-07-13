@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 * {
   margin: 0;
   padding: 0;
@@ -26,9 +28,9 @@
 
 .pageDescription {
   margin-top: 0;
-  font-size: 20px;
+  font-size: 25px;
   margin-left: 5px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   position: relative;
   font-weight: 500;
 
@@ -38,7 +40,7 @@
     position: absolute;
     width: 60px;
     height: 4px;
-    background: linear-gradient(135deg, adjust-hue(rgb(78, 71, 113), -20deg), #bdb8d7);
+    background: linear-gradient(135deg, color.adjust($main, $hue: -20deg), var(--lightMain));
     top: 35px;
   }
 }
@@ -60,7 +62,7 @@ p.disc::before {
   height: 5px;
   width: 5px;
   margin-right: 0.5rem;
-  background-color: #080808;
+  background-color: var(--black);
   margin-right: 10px;
   margin-bottom: 4px;
 }
@@ -68,7 +70,7 @@ p.disc::before {
 .button {
   font-size: 16px;
   font-weight: 400;
-  color: #fff;
+  color: var(--white);
   border: none;
   padding: 12px 30px;
   border-radius: 8px;
@@ -178,7 +180,7 @@ p.disc::before {
       }
 
       a.active {
-        background-color: #594f8d;
+        background-color: var(--mainHover);
       }
 
       a.active {
@@ -192,7 +194,7 @@ p.disc::before {
         }
 
         &:hover {
-          background-color: #594f8d;
+          background-color: var(--mainHover);
 
           a {
             color: var(--white);
@@ -233,11 +235,11 @@ p.disc::before {
     .header {
       padding: 20px;
       background: var(--white);
-      color: #717171;
+      color: var(--grey);
       position: fixed;
       width: -webkit-fill-available;
       border-bottom: 1px solid #e0e4e8;
-      z-index: 1;
+      z-index: 100;
       display: flex;
       justify-content: space-between;
 
@@ -253,7 +255,7 @@ p.disc::before {
 
     .info {
       margin: 20px;
-      color: #717171;
+      color: var(--grey);
       line-height: 25px;
 
       div {

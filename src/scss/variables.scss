@@ -1,13 +1,18 @@
 :root {
-  --main: #4b4276;
-  --mainHover: #5c5777;
+  --main: #615fff;
+  --mainHover: #4338ca;
+  --lightMain: #e0e7ff;
+  --pink: #ff6ec4;
   --white: #fff;
   --black: #1c1c1c;
   --grey: #3d3d3d;
-  --lightMain: #bdb8d7;
   --yellow: #ecbd00;
 
-  --mainHsl: rgb(75, 66, 118);
+  --mainHsl: rgb(99, 102, 241);
+  --trasparent: transparent;
 }
 
+$main: #615fff;
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
+

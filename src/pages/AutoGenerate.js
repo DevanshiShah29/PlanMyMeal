@@ -1,5 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+
+// Constant Imports
 import { breakfastData, LunchData, DinnerData } from '../constant/AutoGenerate';
+
+// Library Imports
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 

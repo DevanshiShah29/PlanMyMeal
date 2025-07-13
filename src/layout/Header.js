@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
-import Sidebar from '../layout/sidebar';
+import { useState } from 'react';
+
+// Resusable Components
+import Sidebar from './sidebar';
+
+// Library Imports
 import { useNavigate, Outlet } from 'react-router-dom';
 import MenuTwoToneIcon from '@mui/icons-material/MenuTwoTone';
 
@@ -17,10 +21,10 @@ const SideBarLayout = () => {
     setIsMobileClick(false);
   };
   const handleLogout = () => {
-    localStorage.removeItem('authentication');
+    localStorage.clear();
     navigate('/login');
   };
-  let username = atob(localStorage.getItem('authentication'));
+  let username = localStorage.getItem('username');
   return (
     <>
       <div className="wrapper">

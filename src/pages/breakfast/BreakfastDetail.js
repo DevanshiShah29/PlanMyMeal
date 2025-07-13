@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+
+// Library Imports
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
-import { breakfastData } from '../../constant/AutoGenerate';
 import WhatshotIcon from '@mui/icons-material/Whatshot';
 import LocalDiningSharpIcon from '@mui/icons-material/LocalDiningSharp';
 import ChevronLeftSharpIcon from '@mui/icons-material/ChevronLeftSharp';
+
+// Helper Import
+import api from '../../utils/api';
 
 export default function BreakfastDetail() {
   const [currentItem, setCurrentItem] = useState([]);
@@ -17,8 +21,19 @@ export default function BreakfastDetail() {
   }, [pathname]);
 
   useEffect(() => {
-    let finalData = breakfastData.filter((item) => item.id === Number(params.id))[0];
-    setCurrentItem(finalData);
+    const fetchRecipe = async () => {
+      try {
+        const res = await api('/recipes', { method: 'GET' });
+
+        const breakfastData = res.filter((item) => item.type?.toLowerCase() === 'breakfast');
+        const item = breakfastData.find((item) => item._id === params.id);
+        setCurrentItem(item);
+      } catch (err) {
+        console.error('Error fetching recipes:', err);
+      }
+    };
+
+    fetchRecipe();
   }, [params.id]);
 
   const detectUrls = (data) => {
@@ -57,7 +72,7 @@ export default function BreakfastDetail() {
         </div>
         <div className="detailInfo">
           <div
-            className={`${currentItem.level === 'easy' ? 'easy' : currentItem.level === 'medium' ? 'medium' : 'hard'}`}
+            className={`${currentItem.level === 'Easy' ? 'easy' : currentItem.level === 'Medium' ? 'medium' : 'hard'}`}
           >
             <LocalDiningSharpIcon />
             {currentItem.level}

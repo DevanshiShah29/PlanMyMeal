@@ -1,18 +1,38 @@
-import React, { useState } from 'react';
-import { breakfastData } from '../../constant/AutoGenerate';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+
+// Library Imports
+import { useNavigate } from 'react-router-dom';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import WhatshotIcon from '@mui/icons-material/Whatshot';
 import LocalDiningSharpIcon from '@mui/icons-material/LocalDiningSharp';
 import SearchSharpIcon from '@mui/icons-material/SearchSharp';
 import ChevronLeftSharpIcon from '@mui/icons-material/ChevronLeftSharp';
 
+// Helper Import
+import api from '../../utils/api';
+
 export default function Breakfast() {
-  const [filteredData, setFilteredData] = useState(breakfastData);
+  const [allData, setAllData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await api('/recipes', { method: 'GET' });
+        const breakfastItems = data.filter((item) => item.type?.toLowerCase() === 'breakfast');
+        setAllData(breakfastItems);
+        setFilteredData(breakfastItems);
+      } catch (error) {
+        console.error('Error fetching recipes:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const handleChange = (event) => {
-    let newData = breakfastData.filter((data) => {
+    let newData = allData.filter((data) => {
       return (
         data.name.toString().toLowerCase().includes(event.target.value.toLowerCase()) ||
         data.level.toString().toLowerCase().includes(event.target.value.toLowerCase()) ||
@@ -37,7 +57,7 @@ export default function Breakfast() {
       <div className="cardParent">
         {filteredData.map((item) => {
           return (
-            <div className="cardWrapper" key={item.id}>
+            <div className="cardWrapper" key={item._id} onClick={() => navigate(`/breakfast/${item._id}`)}>
               <div className="time">
                 <AccessTimeIcon />
                 <div>{item.time}</div>
@@ -45,8 +65,9 @@ export default function Breakfast() {
               <img src={item.image} alt={item.name} className="recipeImage" />
               <div className="cardContent">
                 <h3>{item.name}</h3>
+                <p>"{item.description}"</p>
 
-                <div className={`${item.level === 'easy' ? 'easy' : item.level === 'medium' ? 'medium' : 'hard'}`}>
+                <div className={`${item.level === 'Easy' ? 'easy' : item.level === 'Medium' ? 'medium' : 'hard'}`}>
                   <LocalDiningSharpIcon />
                   {item.level}
                 </div>
@@ -55,10 +76,6 @@ export default function Breakfast() {
                   <WhatshotIcon />
                   {item.calories} Cal
                 </div>
-                <p>"{item.description}"</p>
-                <Link to={`/breakfast/` + item.id} className="button">
-                  View
-                </Link>
               </div>
             </div>
           );

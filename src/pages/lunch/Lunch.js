@@ -1,18 +1,38 @@
-import React, { useState } from 'react';
-import { LunchData } from '../../constant/AutoGenerate';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+
+// Library Imports
+import { useNavigate } from 'react-router-dom';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import WhatshotIcon from '@mui/icons-material/Whatshot';
 import LocalDiningSharpIcon from '@mui/icons-material/LocalDiningSharp';
 import SearchSharpIcon from '@mui/icons-material/SearchSharp';
 import ChevronLeftSharpIcon from '@mui/icons-material/ChevronLeftSharp';
 
+// Helper Import
+import api from '../../utils/api';
+
 export default function Lunch() {
-  const [filteredData, setFilteredData] = useState(LunchData);
+  const [allData, setAllData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await api('/recipes', { method: 'GET' });
+        const lunchItems = data.filter((item) => item.type?.toLowerCase() === 'lunch');
+        setAllData(lunchItems);
+        setFilteredData(lunchItems);
+      } catch (error) {
+        console.error('Error fetching recipes:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const handleChange = (event) => {
-    let newData = LunchData.filter((data) => {
+    let newData = allData.filter((data) => {
       return (
         data.name.toString().toLowerCase().includes(event.target.value.toLowerCase()) ||
         data.level.toString().toLowerCase().includes(event.target.value.toLowerCase()) ||
@@ -36,7 +56,7 @@ export default function Lunch() {
       <div className="cardParent">
         {filteredData.map((item) => {
           return (
-            <div className="cardWrapper" key={item.id}>
+            <div className="cardWrapper" key={item._id} onClick={() => navigate(`/lunch/${item._id}`)}>
               <div className="time">
                 <AccessTimeIcon />
                 <div>{item.time}</div>
@@ -44,8 +64,9 @@ export default function Lunch() {
               <img src={item.image} alt={item.name} className="recipeImage" />
               <div className="cardContent">
                 <h3>{item.name}</h3>
+                <p>"{item.description}"</p>
 
-                <div className={`${item.level === 'easy' ? 'easy' : item.level === 'medium' ? 'medium' : 'hard'}`}>
+                <div className={`${item.level === 'Easy' ? 'easy' : item.level === 'Medium' ? 'medium' : 'hard'}`}>
                   <LocalDiningSharpIcon />
                   {item.level}
                 </div>
@@ -54,10 +75,6 @@ export default function Lunch() {
                   <WhatshotIcon />
                   {item.calories} Cal
                 </div>
-                <p>"{item.description}"</p>
-                <Link to={`/lunch/` + item.id} className="button">
-                  View
-                </Link>
               </div>
             </div>
           );

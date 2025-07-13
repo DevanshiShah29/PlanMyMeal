@@ -1,37 +1,89 @@
-import React from 'react';
+// Library Imports
+import { Row, Col, Card, Typography, Form } from 'antd';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-export default function Login() {
+// Resuable Components
+import CommonInput from '../components/CommonInput';
+import CommonButton from '../components/CommonButton';
+
+// Helper Imports
+import api from '../utils/api';
+
+// Assets
+import login from '../assets/login.svg';
+
+const { Title, Paragraph } = Typography;
+
+const Login = () => {
+  const [form] = Form.useForm();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleFinish = async ({ username, password }) => {
+    try {
+      const res = await api('/login', {
+        method: 'POST',
+        body: JSON.stringify({ username, password }),
+      });
 
-    if (
-      (e.target.username.value === 'Ninad' && e.target.password.value === 'Ninad3110') ||
-      (e.target.username.value === 'Devanshi' && e.target.password.value === 'Devanshi2901')
-    ) {
-      const base64Encoded = btoa(e.target.username.value);
-      localStorage.setItem('authentication', base64Encoded);
-      navigate('/');
-      toast.success('Login successfully!');
-    } else {
-      toast.error('Incorrect credentials!');
+      if (!res.token) throw new Error('No token');
+
+      localStorage.setItem('token', res.token);
+      localStorage.setItem('role', res.role);
+      localStorage.setItem('username', res.username);
+
+      toast.success('Login successful!');
+      navigate(res.role === 'admin' ? '/recipes' : '/');
+    } catch (err) {
+      console.error(err);
+      toast.error('Login failed!');
     }
   };
+
   return (
-    <div className="container" id="loginWrapper">
-      <div className="form-container" id="login-form">
-        <h1>Login</h1>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="username">Username</label>
-          <input type="text" id="username" name="username" required />
-          <label htmlFor="password">Password</label>
-          <input type="password" id="password" name="password" required />
-          <button type="submit">Login</button>
-        </form>
-      </div>
-    </div>
+    <Row style={{ minHeight: '100vh' }} align="middle" justify="center">
+      <Col xs={22} sm={20} md={16} lg={14} xl={12}>
+        <Card className="login-card">
+          <Row gutter={[32, 32]} align="middle" justify="center">
+            <Col xs={24} md={12} className="login-illustration-section">
+              <img src={login} alt="Login Illustration" />
+            </Col>
+
+            <Col xs={24} md={12}>
+              <Title level={3}>Welcome back! 👋</Title>
+              <Paragraph type="secondary" style={{ fontSize: '14px' }}>
+                Store, manage, and explore delicious recipes with ease. Let’s get cooking!
+              </Paragraph>
+              <Form form={form} layout="vertical" onFinish={handleFinish} style={{ marginTop: '30px' }}>
+                <CommonInput
+                  name="username"
+                  label="Username"
+                  placeholder="Enter your username"
+                  rules={[{ required: true, message: 'Username is required' }]}
+                  inputProps={{ prefix: <UserOutlined /> }}
+                />
+                <CommonInput
+                  name="password"
+                  label="Password"
+                  type="password"
+                  placeholder="Enter your password"
+                  rules={[{ required: true, message: 'Password is required' }]}
+                  inputProps={{ prefix: <LockOutlined /> }}
+                />
+
+                <CommonButton text="Login" htmlType="submit" block />
+              </Form>
+
+              <Paragraph style={{ textAlign: 'center', marginTop: '1rem', color: '#999' }}>
+                © {new Date().getFullYear()} All Rights Reserved.
+              </Paragraph>
+            </Col>
+          </Row>
+        </Card>
+      </Col>
+    </Row>
   );
-}
+};
+
+export default Login;
