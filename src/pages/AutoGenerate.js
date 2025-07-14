@@ -166,7 +166,7 @@ export default function AutoGenerate() {
     };
 
     loadFromStorage();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const getUniqueKey = (item, index) => {
     return item ? `${item._id}-${index}` : `null-${index}`;

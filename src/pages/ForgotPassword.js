@@ -1,7 +1,7 @@
 // Library Imports
 import { Row, Col, Card, Typography, Form, message } from 'antd';
 import { MailOutlined } from '@ant-design/icons';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 // Reusable Components
 import CommonInput from '../components/CommonInput';
@@ -60,7 +60,7 @@ const ForgotPassword = () => {
                 <CommonButton text="Send Password" htmlType="submit" block className="auth-btn" />
               </Form>
               <Paragraph className="auth-footer-text">
-                <span>Remembered your password?</span> <a onClick={() => navigate('/login')}>Back to Login</a>
+                <span>Remembered your password?</span> <Link onClick={() => navigate('/login')}>Back to Login</Link>
               </Paragraph>
 
               <Paragraph className="auth-footer-text">© {new Date().getFullYear()} All Rights Reserved.</Paragraph>
