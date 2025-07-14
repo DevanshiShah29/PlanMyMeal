@@ -42,7 +42,6 @@
     }
 
     .card-header {
-      background: linear-gradient(to right, #f97316, #f59e0b);
       background: var(--main);
       color: var(--white);
       font-weight: bold;
@@ -55,17 +54,14 @@
     }
 
     .green-header {
-      background: linear-gradient(to right, #22c55e, #10b981);
       background: var(--main);
     }
 
     .blue-header {
-      background: linear-gradient(to right, #0ea5e9, #38bdf8);
       background: var(--main);
     }
 
     .purple-header {
-      // background: linear-gradient(to right, #a855f7, #ec4899);
       background: var(--main);
     }
 
@@ -246,8 +242,8 @@
   min-height: 500px;
   padding: 2rem;
   box-shadow:
-    0 10px 15px -3px var(--tw-shadow-color, #0000001a),
-    0 4px 6px -4px var(--tw-shadow-color, #0000001a);
+    0 10px 15px -3px var(--tw-shadow-color, var(--lightGrey)),
+    0 4px 6px -4px var(--tw-shadow-color, var(--lightGrey));
   border-radius: 10px;
 
   img {
@@ -371,24 +367,24 @@
     }
 
     .medium {
-      background: #c4e2fd;
-      color: #5e9bd0;
+      background: var(--lightBlue);
+      color: var(--blue);
     }
 
     .easy {
-      background: #d3fdcb;
-      color: #71e364;
+      background: var(--lightGreen);
+      color: var(--green);
     }
 
     .hard {
-      background: #fef2ec;
-      color: #e38d5f;
+      background: var(--lightOrange);
+      color: var(--orange);
     }
     .kcalCount {
       padding: 0px 15px;
       display: inline-block;
       margin: 0px 15px;
-      border-left: 1px solid #dfdfdf;
+      border-left: 1px solid var(--lightGrey);
       display: inline-block;
 
       svg {

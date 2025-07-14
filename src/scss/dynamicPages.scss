@@ -268,7 +268,7 @@
           padding: 0px 15px;
           display: inline-block;
           margin: 0px 15px;
-          border-left: 1px solid #dfdfdf;
+          border-left: 1px solid var(--lightGrey);
           display: inline-block;
 
           svg {
@@ -293,18 +293,18 @@
         }
 
         .medium {
-          background: #c4e2fd;
-          color: #5e9bd0;
+          background: var(--lightBlue);
+          color: var(--blue);
         }
 
         .easy {
-          background: #d3fdcb;
-          color: #71e364;
+          background: var(--lightGreen);
+          color: var(--green);
         }
 
         .hard {
-          background: #fef2ec;
-          color: #e38d5f;
+          background: var(--lightOrange);
+          color: var(--orange);
         }
 
         .button {
@@ -372,7 +372,7 @@
         padding: 0px 15px;
         display: inline-block;
         margin: 0px 15px;
-        border-left: 1px solid #dfdfdf;
+        border-left: 1px solid var(--lightGrey);
         display: inline-block;
 
         svg {
@@ -397,18 +397,18 @@
       }
 
       .medium {
-        background: #c4e2fd;
-        color: #5e9bd0;
+        background: var(--lightBlue);
+        color: var(--blue);
       }
 
       .easy {
-        background: #d3fdcb;
-        color: #71e364;
+        background: var(--lightGreen);
+        color: var(--green);
       }
 
       .hard {
-        background: #fef2ec;
-        color: #e38d5f;
+        background: var(--lightOrange);
+        color: var(--orange);
       }
     }
 
@@ -418,7 +418,7 @@
 
       h3 {
         font-weight: 500;
-        border-top: 1px solid #dfdfdf;
+        border-top: 1px solid var(--lightGrey);
         padding: 20px 0;
       }
 

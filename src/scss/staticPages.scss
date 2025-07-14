@@ -45,7 +45,7 @@
     display: block;
     font-weight: 600;
     position: relative;
-    color: #222;
+    color: var(--black);
     cursor: pointer;
     @media only screen and (max-width: 767px) {
       padding: 5px 2em 5px 0px;
@@ -223,7 +223,7 @@
     width: 100%;
     display: grid;
     grid-template-rows: 3em 3em auto;
-    border: 1px solid #dfdfdf;
+    border: 1px solid var(--lightGrey);
     border-radius: 8px;
     @media only screen and (max-width: 767px) {
       overflow-x: scroll;
@@ -276,7 +276,7 @@
       flex-grow: 1;
       flex-shrink: 1;
       flex-basis: 0;
-      color: #000;
+      color: var(--black);
       padding: 5px;
       border-right: 1px solid #dadce0;
       position: relative;
