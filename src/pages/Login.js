@@ -76,7 +76,7 @@ const Login = () => {
                 />
 
                 <Paragraph className="auth-forgot">
-                  <Link onClick={() => navigate('/forgot-password')}>Forgot password?</Link>
+                  <Link to="/forgot-password">Forgot password?</Link>
                 </Paragraph>
 
                 <CommonButton text="Login" htmlType="submit" block />

@@ -60,7 +60,7 @@ const ForgotPassword = () => {
                 <CommonButton text="Send Password" htmlType="submit" block className="auth-btn" />
               </Form>
               <Paragraph className="auth-footer-text">
-                <span>Remembered your password?</span> <Link onClick={() => navigate('/login')}>Back to Login</Link>
+                <span>Remembered your password?</span> <Link to="/login">Back to Login</Link>
               </Paragraph>
 
               <Paragraph className="auth-footer-text">© {new Date().getFullYear()} All Rights Reserved.</Paragraph>
