@@ -36,7 +36,6 @@ export default function LunchDetail() {
   }, [params.id]);
 
   const detectUrls = (data) => {
-    console.log(data, 'data');
     return data.includes('\n')
       ? data.split('\n').map((desc, index) => {
           const key = index + 1;
@@ -89,10 +88,7 @@ export default function LunchDetail() {
 
         <div className="preparation">
           <h3>Preparation</h3>
-          <ul className="numbers">
-            {console.log(currentItem)}
-            {currentItem?.instructions && detectUrls(currentItem.instructions)}
-          </ul>
+          <ul className="numbers">{currentItem?.instructions && detectUrls(currentItem.instructions)}</ul>
         </div>
       </div>
     </div>

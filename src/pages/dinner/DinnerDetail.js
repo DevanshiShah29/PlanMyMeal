@@ -36,7 +36,6 @@ export default function DinnerDetail() {
   }, [params.id]);
 
   const detectUrls = (data) => {
-    console.log(data, 'data');
     return data.includes('\n')
       ? data.split('\n').map((desc, index) => {
           const key = index + 1;
@@ -90,7 +89,6 @@ export default function DinnerDetail() {
         <div className="preparation">
           <h3>Preparation</h3>
           <ul className="numbers">
-            {console.log(currentItem)}
             {currentItem?.instructions && detectUrls(currentItem.instructions)}
           </ul>
         </div>

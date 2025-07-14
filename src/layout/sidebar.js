@@ -38,7 +38,6 @@ export default function Sidebar(props) {
 
   useEffect(() => {
     if (props.isMobileClick) {
-      console.log(expand);
       setExpand(true);
       props.mobileToggle();
     }
