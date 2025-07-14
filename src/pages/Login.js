@@ -1,7 +1,7 @@
 // Library Imports
 import { Row, Col, Card, Typography, Form } from 'antd';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 // Reusable Components
@@ -76,7 +76,7 @@ const Login = () => {
                 />
 
                 <Paragraph className="auth-forgot">
-                  <a onClick={() => navigate('/forgot-password')}>Forgot password?</a>
+                  <Link onClick={() => navigate('/forgot-password')}>Forgot password?</Link>
                 </Paragraph>
 
                 <CommonButton text="Login" htmlType="submit" block />
