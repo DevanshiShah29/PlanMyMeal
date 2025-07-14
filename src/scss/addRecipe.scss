@@ -119,6 +119,7 @@
   }
 }
 
+// AI Button Styles
 .generate-ai-btn {
   background: linear-gradient(270deg, var(--pink), var(--main));
   color: white;
@@ -191,6 +192,7 @@
   }
 }
 
+// Common Button and Input Styles
 .common-btn {
   &.ant-btn-primary {
     background-color: var(--main);
@@ -248,6 +250,7 @@
   }
 }
 
+// No Data Found Page Styles
 .emptyWrapper {
   background: var(--white);
   padding: 60px 0;
@@ -256,4 +259,51 @@
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin-top: 30px;
+}
+
+// Authentication Page Styles
+.auth-wrapper {
+  min-height: 100vh;
+  .auth-subtext {
+    font-size: 14px;
+    color: var(--grey);
+  }
+
+  .auth-form {
+    margin-top: 30px;
+    position: relative;
+
+    .auth-btn {
+      margin-top: 58px;
+    }
+  }
+
+  .auth-footer-text {
+    text-align: center;
+    margin-top: 1rem;
+    color: var(--grey);
+    font-size: 14px;
+
+    a {
+      cursor: pointer;
+    }
+  }
+
+  .auth-forgot {
+    top: 98px;
+    right: 0;
+    text-align: right;
+    position: absolute;
+    font-size: 13px;
+    margin: 0;
+
+    a {
+      color: var(--main);
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }

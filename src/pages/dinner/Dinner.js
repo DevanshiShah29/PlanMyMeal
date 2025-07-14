@@ -19,7 +19,7 @@ export default function Dinner() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await api('/recipes', { method: 'GET' });
+        const data = await api('/recipes?type=dinner', { method: 'GET' });
         const dinnerItems = data.filter((item) => item.type?.toLowerCase() === 'dinner');
         setAllData(dinnerItems);
         setFilteredData(dinnerItems);
@@ -64,7 +64,7 @@ export default function Dinner() {
               <img src={item.image} alt={item.name} className="recipeImage" />
               <div className="cardContent">
                 <h3>{item.name}</h3>
-                <p>"{item.description}"</p>
+                <p>{item.description}</p>
 
                 <div className={`${item.level === 'Easy' ? 'easy' : item.level === 'Medium' ? 'medium' : 'hard'}`}>
                   <LocalDiningSharpIcon />

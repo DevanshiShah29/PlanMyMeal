@@ -19,8 +19,7 @@ export default function Breakfast() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await api('/recipes', { method: 'GET' });
-        const breakfastItems = data.filter((item) => item.type?.toLowerCase() === 'breakfast');
+        const breakfastItems = await api('/recipes?type=breakfast', { method: 'GET' });
         setAllData(breakfastItems);
         setFilteredData(breakfastItems);
       } catch (error) {
@@ -65,7 +64,7 @@ export default function Breakfast() {
               <img src={item.image} alt={item.name} className="recipeImage" />
               <div className="cardContent">
                 <h3>{item.name}</h3>
-                <p>"{item.description}"</p>
+                <p>{item.description}</p>
 
                 <div className={`${item.level === 'Easy' ? 'easy' : item.level === 'Medium' ? 'medium' : 'hard'}`}>
                   <LocalDiningSharpIcon />

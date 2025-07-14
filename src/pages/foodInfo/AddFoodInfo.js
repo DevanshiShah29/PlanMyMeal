@@ -137,7 +137,7 @@ const AddFoodInfo = () => {
                         <CommonInput
                           {...restField}
                           name={[name, 'frontParagraph']}
-                          label="Front Paragraph"
+                          label="Front"
                           rules={[{ required: true, message: 'Enter front paragraph' }]}
                           placeholder="e.g. Do you know how much value one apple adds?"
                         />
@@ -147,7 +147,7 @@ const AddFoodInfo = () => {
                           type="textarea"
                           {...restField}
                           name={[name, 'backParagraph']}
-                          label="Back Paragraph"
+                          label="Back"
                           placeholder="e.g. Apples are a nutritional powerhouse..."
                           rules={[{ required: true, message: 'Enter back paragraph' }]}
                           autoSize={{ minRows: 3, maxRows: 6 }}

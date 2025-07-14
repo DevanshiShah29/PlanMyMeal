@@ -244,6 +244,13 @@ p.disc::before {
       justify-content: space-between;
 
       .mobileBtn {
+        button {
+          background: var(--transparent);
+          color: var(--black);
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
         display: flex;
       }
 
@@ -263,4 +270,14 @@ p.disc::before {
       }
     }
   }
+}
+
+// auto fill fix
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 600000s 0s, color 600000s 0s;
+  -webkit-text-fill-color: #000 !important;
+  background-color: transparent !important;
 }

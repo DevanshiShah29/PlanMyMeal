@@ -19,7 +19,7 @@ export default function Lunch() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await api('/recipes', { method: 'GET' });
+        const data = await api('/recipes?type=lunch', { method: 'GET' });
         const lunchItems = data.filter((item) => item.type?.toLowerCase() === 'lunch');
         setAllData(lunchItems);
         setFilteredData(lunchItems);
@@ -64,7 +64,7 @@ export default function Lunch() {
               <img src={item.image} alt={item.name} className="recipeImage" />
               <div className="cardContent">
                 <h3>{item.name}</h3>
-                <p>"{item.description}"</p>
+                <p>{item.description}</p>
 
                 <div className={`${item.level === 'Easy' ? 'easy' : item.level === 'Medium' ? 'medium' : 'hard'}`}>
                   <LocalDiningSharpIcon />

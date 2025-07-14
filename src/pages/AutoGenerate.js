@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
-
-// Constant Imports
-import { breakfastData, LunchData, DinnerData } from '../constant/AutoGenerate';
-
 // Library Imports
 import moment from 'moment';
 import { Link } from 'react-router-dom';
+
+// Helper Import
+import api from '../utils/api';
 
 export default function AutoGenerate() {
   const [breakfastItems, setBreakfastItems] = useState([]);
@@ -16,19 +15,19 @@ export default function AutoGenerate() {
   const [currentWeekNo, setCurrentWeekNo] = useState('');
   const [today, setToday] = useState('');
 
-  const getRandomItems = (items, numberOfItems) => {
-    const pickedItems = [];
-    for (let i = 1; i <= numberOfItems; i += 1) {
-      pickedItems.push(Math.trunc(Math.random() * items.length + 1));
+  const fetchRecipesByType = async (type) => {
+    try {
+      const data = await api(`/recipes?type=${type}`, { method: 'GET' });
+      return Array.isArray(data) ? data : [];
+    } catch (err) {
+      console.error(`Failed to fetch ${type} recipes`, err);
+      return [];
     }
-    return pickedItems;
   };
 
-  const getRandomMealItems = (randomNo, JsonData) => {
-    let finalData = randomNo.map((randomId) => {
-      return JsonData.filter((item) => item.id === randomId)[0];
-    });
-    return finalData;
+  const getRandomItems = (items, count) => {
+    const shuffled = [...items].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
   };
 
   const getCurrentWeek = () => {
@@ -46,54 +45,47 @@ export default function AutoGenerate() {
       days.push(moment(weekStart).add(i, 'days').format('dddd D'));
     }
     setCurrentWeek(days);
-
-    return days;
   };
 
-  const handleGenerate = () => {
-    const randomBreakfastIds = getRandomItems(breakfastData, 7);
-    const randomLunchIds = getRandomItems(LunchData, 7);
-    const randomDinnerIds = getRandomItems(DinnerData, 7);
+  const handleGenerate = async () => {
+    const breakfast = await fetchRecipesByType('breakfast');
+    const lunch = await fetchRecipesByType('lunch');
+    const dinner = await fetchRecipesByType('dinner');
 
-    setBreakfastItems(getRandomMealItems(randomBreakfastIds, breakfastData));
-    setLunchItems(getRandomMealItems(randomLunchIds, LunchData));
-    setDinnerItems(getRandomMealItems(randomDinnerIds, DinnerData));
-    sessionStorage.setItem('breakfast', JSON.stringify(breakfastItems));
-    sessionStorage.setItem('lunch', JSON.stringify(lunchItems));
-    sessionStorage.setItem('dinner', JSON.stringify(dinnerItems));
+    const randomBreakfast = getRandomItems(breakfast, 7);
+    const randomLunch = getRandomItems(lunch, 7);
+    const randomDinner = getRandomItems(dinner, 7);
+
+    setBreakfastItems(randomBreakfast);
+    setLunchItems(randomLunch);
+    setDinnerItems(randomDinner);
+
+    sessionStorage.setItem('breakfast', JSON.stringify(randomBreakfast));
+    sessionStorage.setItem('lunch', JSON.stringify(randomLunch));
+    sessionStorage.setItem('dinner', JSON.stringify(randomDinner));
   };
 
   useEffect(() => {
     getCurrentWeek();
-    let breakfast = sessionStorage.getItem('breakfast');
-    let lunch = sessionStorage.getItem('lunch');
-    let dinner = sessionStorage.getItem('dinner');
+    const breakfast = sessionStorage.getItem('breakfast');
+    const lunch = sessionStorage.getItem('lunch');
+    const dinner = sessionStorage.getItem('dinner');
 
-    if (breakfast) {
+    if (breakfast && lunch && dinner) {
       setBreakfastItems(JSON.parse(breakfast));
       setLunchItems(JSON.parse(lunch));
       setDinnerItems(JSON.parse(dinner));
     } else {
-      const randomBreakfastIds = getRandomItems(breakfastData, 7);
-      const randomLunchIds = getRandomItems(LunchData, 7);
-      const randomDinnerIds = getRandomItems(DinnerData, 7);
-
-      setBreakfastItems(getRandomMealItems(randomBreakfastIds, breakfastData));
-      setLunchItems(getRandomMealItems(randomLunchIds, LunchData));
-      setDinnerItems(getRandomMealItems(randomDinnerIds, DinnerData));
-
-      sessionStorage.setItem('breakfast', JSON.stringify(breakfastItems));
-      sessionStorage.setItem('lunch', JSON.stringify(lunchItems));
-      sessionStorage.setItem('dinner', JSON.stringify(dinnerItems));
+      handleGenerate();
     }
-    // eslint-disable-next-line
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div id="randomWrapper">
       <div className="headerWrapper">
-        <h1 className="pageDescription">Plan my week </h1>
-        <button className="button" onClick={() => handleGenerate()}>
+        <h1 className="pageDescription">Plan my week</h1>
+        <button className="button" onClick={handleGenerate}>
           Generate
         </button>
       </div>
@@ -105,69 +97,68 @@ export default function AutoGenerate() {
         <div className="days">
           <div className="filler"></div>
           <div className="filler"></div>
-          {currentWeek.length > 0 &&
-            currentWeek.map((week, index) => {
-              return (
-                <div className={`${today === week ? 'dayName current' : 'dayName'}`} key={index}>
-                  {week}
-                </div>
-              );
-            })}
+          {currentWeek.map((week, index) => (
+            <div className={today === week ? 'dayName current' : 'dayName'} key={index}>
+              {week}
+            </div>
+          ))}
         </div>
+
+        {/* Breakfast Row */}
         <div className="row">
           <div className="day">
             <div className="day-number time">Breakfast</div>
           </div>
-
-          {breakfastItems.length > 0 &&
-            breakfastItems.map((item, index) => {
-              return (
-                <div key={index + 1} className="day">
-                  <img src={item?.image} alt={item?.name} className="image" />
-                  <div className="overlay">
-                    <div className="text">
-                      <Link to={'/breakfast/' + item.id}> {item?.name}</Link>
-                    </div>
+          {breakfastItems.map((item) =>
+            item?._id ? (
+              <div key={item._id} className="day">
+                <img src={item.image} alt={item.name} className="image" />
+                <div className="overlay">
+                  <div className="text">
+                    <Link to={`/breakfast/${item._id}`}>{item.name}</Link>
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            ) : null,
+          )}
         </div>
+
+        {/* Lunch Row */}
         <div className="row">
           <div className="day">
             <div className="day-number time">Lunch</div>
           </div>
-          {lunchItems.length > 0 &&
-            lunchItems.map((item, index) => {
-              return (
-                <div key={index + 1} className="day">
-                  <img src={item?.image} alt={item?.name} className="image" />
-                  <div className="overlay">
-                    <div className="text">
-                      <Link to={'/lunch/' + item.id}> {item?.name}</Link>
-                    </div>
+          {lunchItems.map((item) =>
+            item?._id ? (
+              <div key={item._id} className="day">
+                <img src={item.image} alt={item.name} className="image" />
+                <div className="overlay">
+                  <div className="text">
+                    <Link to={`/lunch/${item._id}`}>{item.name}</Link>
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            ) : null,
+          )}
         </div>
+
+        {/* Dinner Row */}
         <div className="row">
           <div className="day">
             <div className="day-number time">Dinner</div>
           </div>
-          {dinnerItems.length > 0 &&
-            dinnerItems.map((item, index) => {
-              return (
-                <div key={index + 1} className="day">
-                  <img src={item?.image} alt={item?.name} className="image" />
-                  <div className="overlay">
-                    <div className="text">
-                      <Link to={'/dinner/' + item.id}> {item?.name}</Link>
-                    </div>
+          {dinnerItems.map((item) =>
+            item?._id ? (
+              <div key={item._id} className="day">
+                <img src={item.image} alt={item.name} className="image" />
+                <div className="overlay">
+                  <div className="text">
+                    <Link to={`/dinner/${item._id}`}>{item.name}</Link>
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            ) : null,
+          )}
         </div>
       </div>
     </div>

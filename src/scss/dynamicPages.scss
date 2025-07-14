@@ -246,8 +246,22 @@
           font-weight: bold;
         }
 
-        p {
+        p,
+        .ant-typography-ellipsis {
           padding: 20px 0;
+          min-height: 95px;
+          font-size: 16px;
+          margin-bottom: 10px;
+
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+
+          overflow: hidden;
+          text-overflow: ellipsis;
+
+          line-height: 1.5em;
+          max-height: 4.5em; // 1.5em * 3 lines
         }
 
         .kcalCount {

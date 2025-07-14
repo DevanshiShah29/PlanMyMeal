@@ -87,7 +87,7 @@ export default function Sidebar(props) {
                 onClick={regexp.test(details) ? handleToggleSidebar : undefined}
                 role="button"
               >
-                <SchoolTwoToneIcon /> {expand && 'Nutritional Info'}
+                <SchoolTwoToneIcon /> {expand && 'Food Info'}
               </NavLink>
             </li>
           </>

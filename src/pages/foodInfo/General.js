@@ -36,7 +36,7 @@ export default function General() {
 
   return (
     <div id="generalWrapper">
-      <h1 className="pageDescription">Nutritional Information</h1>
+      <h1 className="pageDescription">Food Information</h1>
       {Array.isArray(foodData) && foodData.length > 0 ? (
         <div className="content">
           {foodData.map((item) => (

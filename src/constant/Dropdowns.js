@@ -1,4 +1,4 @@
-export const difficultyLevels = ['easy', 'medium', 'hard'];
+export const difficultyLevels = ['Easy', 'Medium', 'Hard'];
 export const timeDurations = ['5 mins', '10 mins', '15 mins', '30 mins', '45 mins', '1 hour', '2 hours', '3+ hours'];
 export const recipeTypes2 = [
   'Side Dish',

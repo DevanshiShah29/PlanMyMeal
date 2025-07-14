@@ -31,6 +31,7 @@ import Recipes from './pages/recipes/Recipes';
 import PrivateRoute from './utils/PrivateRoute';
 import AdminRoute from './utils/AdminRoute';
 import UserRoute from './utils/UserRoute';
+import ForgotPassword from './pages/ForgotPassword';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
 
           {/* Protected routes wrapped in PrivateRoute + layout */}
           <Route element={<PrivateRoute />}>
@@ -64,10 +66,9 @@ function App() {
                 <Route path="/FoodInfoTable" element={<FoodInfoTable />} />
                 <Route path="/add-food-info" element={<AddFoodInfo />} />
               </Route>
+              <Route path="*" element={<ErrorPage />} />
             </Route>
           </Route>
-
-          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>
     </>

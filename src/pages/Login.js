@@ -4,7 +4,7 @@ import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-// Resuable Components
+// Reusable Components
 import CommonInput from '../components/CommonInput';
 import CommonButton from '../components/CommonButton';
 
@@ -42,7 +42,7 @@ const Login = () => {
   };
 
   return (
-    <Row style={{ minHeight: '100vh' }} align="middle" justify="center">
+    <Row className="auth-wrapper" align="middle" justify="center">
       <Col xs={22} sm={20} md={16} lg={14} xl={12}>
         <Card className="login-card">
           <Row gutter={[32, 32]} align="middle" justify="center">
@@ -52,10 +52,12 @@ const Login = () => {
 
             <Col xs={24} md={12}>
               <Title level={3}>Welcome back! 👋</Title>
-              <Paragraph type="secondary" style={{ fontSize: '14px' }}>
+
+              <Paragraph className="auth-subtext">
                 Store, manage, and explore delicious recipes with ease. Let’s get cooking!
               </Paragraph>
-              <Form form={form} layout="vertical" onFinish={handleFinish} style={{ marginTop: '30px' }}>
+
+              <Form form={form} layout="vertical" onFinish={handleFinish} className="auth-form">
                 <CommonInput
                   name="username"
                   label="Username"
@@ -63,6 +65,7 @@ const Login = () => {
                   rules={[{ required: true, message: 'Username is required' }]}
                   inputProps={{ prefix: <UserOutlined /> }}
                 />
+
                 <CommonInput
                   name="password"
                   label="Password"
@@ -72,12 +75,14 @@ const Login = () => {
                   inputProps={{ prefix: <LockOutlined /> }}
                 />
 
+                <Paragraph className="auth-forgot">
+                  <a onClick={() => navigate('/forgot-password')}>Forgot password?</a>
+                </Paragraph>
+
                 <CommonButton text="Login" htmlType="submit" block />
               </Form>
 
-              <Paragraph style={{ textAlign: 'center', marginTop: '1rem', color: '#999' }}>
-                © {new Date().getFullYear()} All Rights Reserved.
-              </Paragraph>
+              <Paragraph className="auth-footer-text">© {new Date().getFullYear()} All Rights Reserved.</Paragraph>
             </Col>
           </Row>
         </Card>
