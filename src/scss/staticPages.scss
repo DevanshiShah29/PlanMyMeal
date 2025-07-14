@@ -334,6 +334,13 @@
       &:nth-child(8) {
         background-color: #f1f3f4;
       }
+
+      .empty-slot {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
     }
 
     .time {
