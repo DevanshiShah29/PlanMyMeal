@@ -26,15 +26,6 @@ export const homeData = [
       'Dinner (2-3 hours pre-sleep) = silent health boost! Harmonizes with your body, aids digestion, sleep, metabolism, and potentially lowers heart & diabetes risks.',
   },
   {
-    id: 4,
-    name: 'Snack',
-    slug: 'snack',
-    image:
-      'https://images.unsplash.com/photo-1559622214-f8a9850965bb?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    description:
-      'Snacks help bridge gaps between meals, control hunger, and maintain energy. Choose healthy ones for sustained focus and metabolism boost.',
-  },
-  {
     id: 5,
     name: 'Dessert',
     slug: 'dessert',

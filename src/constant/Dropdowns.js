@@ -3,6 +3,7 @@ export const difficultyLevels = ['Easy', 'Medium', 'Hard'];
 export const cookingTimes = ['5 mins', '10 mins', '15 mins', '30 mins', '45 mins', '1 hour', '2 hours', '3+ hours'];
 
 export const recipeTypes2 = [
+  'Snack',
   'Side Dish',
   'Main Course',
   'Vegetarian',
@@ -21,17 +22,7 @@ export const recipeTypes2 = [
   'Raw',
 ];
 
-export const recipeTypes = [
-  'Breakfast',
-  'Lunch',
-  'Dinner',
-  'Snack',
-  'Dessert',
-  'Appetizer',
-  'Salad',
-  'Soup',
-  'Beverage',
-];
+export const recipeTypes = ['Breakfast', 'Lunch', 'Dinner', 'Dessert', 'Appetizer', 'Salad', 'Soup', 'Beverage'];
 
 export const nutritionFields = [
   { name: 'calories', label: 'Calories (kcal)', placeholder: '355' },
