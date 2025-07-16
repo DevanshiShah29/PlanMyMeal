@@ -5,6 +5,7 @@ import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import WhatshotIcon from '@mui/icons-material/Whatshot';
 import LocalDiningSharpIcon from '@mui/icons-material/LocalDiningSharp';
 import ChevronLeftSharpIcon from '@mui/icons-material/ChevronLeftSharp';
+import { message } from 'antd';
 
 // Helper Import
 import api from '../../utils/api';
@@ -28,7 +29,7 @@ export default function LunchDetail() {
         const item = lunchItems.find((item) => item._id === params.id);
         setCurrentItem(item);
       } catch (err) {
-        console.error('Error fetching recipes:', err);
+        message.error('Error fetching recipes:', err);
       }
     };
 

@@ -57,8 +57,7 @@ const AddRecipe = () => {
       navigate('/recipes');
       form.resetFields();
     } catch (error) {
-      console.error('Error:', error);
-      message.error('Something went wrong. Please try again.');
+      message.error('Something went wrong. Please try again.', error);
     }
   };
 

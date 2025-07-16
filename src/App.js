@@ -1,37 +1,46 @@
+// Library imports
 import 'antd/dist/reset.css';
 import './App.css';
 import './scss/App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import Home from './pages/Home';
+import Breakfast from './pages/breakfast/Breakfast';
+import BreakfastDetail from './pages/breakfast/BreakfastDetail';
+import Lunch from './pages/lunch/Lunch';
+import LunchDetail from './pages/lunch/LunchDetail';
+import Dinner from './pages/dinner/Dinner';
+import DinnerDetail from './pages/dinner/DinnerDetail';
+import ErrorPage from './pages/ErrorPage';
+import AddRecipe from './pages/recipes/AddRecipe';
+import Recipes from './pages/recipes/Recipes';
+
+// Auth pages
+import Login from './pages/auth/Login';
+import ForgotPassword from './pages/auth/ForgotPassword';
+
+// Middleware pages
+import PrivateRoute from './utils/PrivateRoute';
+import AdminRoute from './utils/AdminRoute';
+import UserRoute from './utils/UserRoute';
+
+// Facts pages
 import Facts from './pages/Facts/Facts';
 import FactsTable from './pages/Facts/FactsTable';
 import AddFact from './pages/Facts/AddFact';
 
+// Food info pages
 import General from './pages/foodInfo/General';
 import FoodInfoTable from './pages/foodInfo/FoodInfoTable';
 import AddFoodInfo from './pages/foodInfo/AddFoodInfo';
 
+// Plan week page
 import AutoGenerate from './pages/AutoGenerate';
-import Breakfast from './pages/breakfast/Breakfast';
-import Lunch from './pages/lunch/Lunch';
-import LunchDetail from './pages/lunch/LunchDetail';
-import Dinner from './pages/dinner/Dinner';
-import BreakfastDetail from './pages/breakfast/BreakfastDetail';
-import ErrorPage from './pages/ErrorPage';
-import Login from './pages/Login';
-import SideBarLayout from './layout/Header';
-import DinnerDetail from './pages/dinner/DinnerDetail';
-import AddRecipe from './pages/recipes/AddRecipe';
-import Recipes from './pages/recipes/Recipes';
 
-import PrivateRoute from './utils/PrivateRoute';
-import AdminRoute from './utils/AdminRoute';
-import UserRoute from './utils/UserRoute';
-import ForgotPassword from './pages/ForgotPassword';
+// Layout pages
+import SideBarLayout from './layout/Header';
 
 function App() {
   return (

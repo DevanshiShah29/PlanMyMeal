@@ -6,14 +6,14 @@ import { MailOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 
 // Reusable Components
-import CommonInput from '../components/CommonInput';
-import CommonButton from '../components/CommonButton';
+import CommonInput from '../../components/CommonInput';
+import CommonButton from '../../components/CommonButton';
 
 // Helper Imports
-import api from '../utils/api';
+import api from '../../utils/api';
 
 // Assets
-import login from '../assets/login.svg';
+import login from '../../assets/login.svg';
 
 const { Title, Paragraph } = Typography;
 

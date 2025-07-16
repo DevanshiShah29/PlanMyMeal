@@ -7,6 +7,7 @@ import WhatshotIcon from '@mui/icons-material/Whatshot';
 import LocalDiningSharpIcon from '@mui/icons-material/LocalDiningSharp';
 import SearchSharpIcon from '@mui/icons-material/SearchSharp';
 import ChevronLeftSharpIcon from '@mui/icons-material/ChevronLeftSharp';
+import { message } from 'antd';
 
 // Helper Import
 import api from '../../utils/api';
@@ -24,7 +25,7 @@ export default function Lunch() {
         setAllData(lunchItems);
         setFilteredData(lunchItems);
       } catch (error) {
-        console.error('Error fetching recipes:', error);
+        message.error('Error fetching recipes:', error);
       }
     };
 

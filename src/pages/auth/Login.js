@@ -5,14 +5,14 @@ import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 // Reusable Components
-import CommonInput from '../components/CommonInput';
-import CommonButton from '../components/CommonButton';
+import CommonInput from '../../components/CommonInput';
+import CommonButton from '../../components/CommonButton';
 
 // Helper Imports
-import api from '../utils/api';
+import api from '../../utils/api';
 
 // Assets
-import login from '../assets/login.svg';
+import login from '../../assets/login.svg';
 
 const { Title, Paragraph } = Typography;
 
@@ -36,7 +36,6 @@ const Login = () => {
       toast.success('Login successful!');
       navigate(res.role === 'admin' ? '/recipes' : '/');
     } catch (err) {
-      console.error(err);
       toast.error('Login failed!');
     }
   };

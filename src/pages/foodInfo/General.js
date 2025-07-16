@@ -18,8 +18,7 @@ export default function General() {
         });
         setFoodData(res);
       } catch (err) {
-        console.error('Failed to load food info:', err);
-        message.error('Failed to load food information');
+        message.error('Failed to load food information', err);
       }
     };
 

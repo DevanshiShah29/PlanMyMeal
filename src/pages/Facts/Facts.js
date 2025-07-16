@@ -6,7 +6,7 @@ import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
-import { Empty } from 'antd';
+import { Empty, message } from 'antd';
 
 // Helper Imports
 import api from '../../utils/api';
@@ -21,7 +21,7 @@ export default function Facts() {
         const data = await api('/facts', { method: 'GET' });
         setFaqs(data);
       } catch (error) {
-        console.error('Failed to fetch facts:', error);
+        message.error('Failed to fetch facts:', error);
       }
     };
 

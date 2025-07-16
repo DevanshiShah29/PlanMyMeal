@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 // Library Imports
 import moment from 'moment';
 import { Link } from 'react-router-dom';
-import { Skeleton, Card, List, Space, Typography } from 'antd';
+import { Skeleton, Card, List, Space, Typography, message } from 'antd';
 import { ClockCircleOutlined } from '@ant-design/icons';
 import LocalDiningSharpIcon from '@mui/icons-material/LocalDiningSharp';
 
@@ -34,7 +34,7 @@ export default function AutoGenerate() {
       const data = await api(`/recipes?type=${type}`, { method: 'GET' });
       return Array.isArray(data) ? data : [];
     } catch (err) {
-      console.error(`Failed to fetch ${type} recipes`, err);
+      message.error('Error fetching data:', err);
       return [];
     }
   };
@@ -79,7 +79,7 @@ export default function AutoGenerate() {
       sessionStorage.setItem('lunch', JSON.stringify(randomLunch));
       sessionStorage.setItem('dinner', JSON.stringify(randomDinner));
     } catch (error) {
-      console.error('Error generating meals:', error);
+      message.error('Error generating meals:', error);
     } finally {
       setLoading(false);
     }
@@ -119,7 +119,7 @@ export default function AutoGenerate() {
       setAllRecipes(recipes);
       setIsModalOpen(true);
     } catch (error) {
-      console.error('Error fetching recipes:', error);
+      message.error('Error fetching recipes:', error);
     }
   };
 

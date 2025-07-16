@@ -64,8 +64,7 @@ const FactTable = () => {
       setFacts(data);
       setFilteredData(data);
     } catch (err) {
-      console.error('Error fetching facts:', err);
-      message.error('Failed to load facts.');
+      message.error('Failed to load facts.', err);
     } finally {
       setLoading(false);
     }
@@ -88,8 +87,7 @@ const FactTable = () => {
       message.success('Fact deleted');
       fetchFacts();
     } catch (err) {
-      console.error('Delete failed:', err);
-      message.error('Failed to delete fact');
+      message.error('Failed to delete fact', err);
     }
   };
 

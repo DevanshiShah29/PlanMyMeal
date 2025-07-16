@@ -66,8 +66,7 @@ const FoodInfoTable = () => {
       setFoods(data);
       setFilteredData(data);
     } catch (err) {
-      console.error('Error fetching food info:', err);
-      message.error('Failed to load food info.');
+      message.error('Failed to load food info.', err);
     } finally {
       setLoading(false);
     }
@@ -90,8 +89,7 @@ const FoodInfoTable = () => {
       message.success('Food info deleted');
       fetchFoodInfo();
     } catch (err) {
-      console.error('Delete failed:', err);
-      message.error('Failed to delete food info');
+      message.error('Failed to delete food info', err);
     }
   };
 

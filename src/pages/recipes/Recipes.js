@@ -33,8 +33,7 @@ const RecipeTable = () => {
       setRecipes(data);
       setFilteredData(data);
     } catch (err) {
-      console.error('Error fetching recipes:', err);
-      message.error('Failed to load recipes.');
+      message.error('Failed to load recipes.', err);
     } finally {
       setLoading(false);
     }
@@ -57,8 +56,7 @@ const RecipeTable = () => {
       message.success('Recipe deleted');
       fetchRecipes();
     } catch (err) {
-      console.error('Delete failed:', err);
-      message.error('Failed to delete recipe');
+      message.error('Failed to delete', err);
     }
   };
 
