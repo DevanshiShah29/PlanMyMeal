@@ -1,7 +1,7 @@
 // Library Imports
 import { Row, Col, Card, Typography, Form, message } from 'antd';
 import { MailOutlined } from '@ant-design/icons';
-import { useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // Reusable Components
 import CommonInput from '../components/CommonInput';
@@ -17,7 +17,6 @@ const { Title, Paragraph } = Typography;
 
 const ForgotPassword = () => {
   const [form] = Form.useForm();
-  const navigate = useNavigate();
 
   const handleFinish = async ({ email }) => {
     try {

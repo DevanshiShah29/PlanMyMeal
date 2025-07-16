@@ -118,6 +118,8 @@ const AddRecipe = () => {
             rules={[{ required: true, message: 'Enter a valid image URL' }]}
             placeholder="https://example.com/image.jpg"
           />
+
+          <CommonInput name="youtubeLink" label="Youtube URL" placeholder="https://youtube.com/watch?v=example" />
         </Card>
 
         {/* RECIPE DETAILS */}

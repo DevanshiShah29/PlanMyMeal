@@ -424,11 +424,9 @@
 
       ul {
         list-style: none;
-        /* remove the default */
       }
 
       ul.disc li::before {
-        /* add the new bullet point */
         display: inline-block;
         content: '';
         -webkit-border-radius: 0.375rem;
