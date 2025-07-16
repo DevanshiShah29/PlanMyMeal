@@ -7,15 +7,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import Home from './pages/Home';
-import Breakfast from './pages/breakfast/Breakfast';
-import BreakfastDetail from './pages/breakfast/BreakfastDetail';
-import Lunch from './pages/lunch/Lunch';
-import LunchDetail from './pages/lunch/LunchDetail';
-import Dinner from './pages/dinner/Dinner';
-import DinnerDetail from './pages/dinner/DinnerDetail';
 import ErrorPage from './pages/ErrorPage';
-import AddRecipe from './pages/recipes/AddRecipe';
-import Recipes from './pages/recipes/Recipes';
 
 // Auth pages
 import Login from './pages/auth/Login';
@@ -25,6 +17,12 @@ import ForgotPassword from './pages/auth/ForgotPassword';
 import PrivateRoute from './utils/PrivateRoute';
 import AdminRoute from './utils/AdminRoute';
 import UserRoute from './utils/UserRoute';
+
+// Recipe pages
+import AddRecipe from './pages/recipes/AddRecipe';
+import Recipes from './pages/recipes/Recipes';
+import RecipeList from './pages/recipes/RecipeList';
+import RecipeDetail from './pages/recipes/RecipeDetail';
 
 // Facts pages
 import Facts from './pages/Facts/Facts';
@@ -56,12 +54,8 @@ function App() {
             <Route element={<SideBarLayout />}>
               <Route element={<UserRoute />}>
                 <Route path="/" element={<Home />} />
-                <Route path="/breakfast" element={<Breakfast />} />
-                <Route path="/breakfast/:id" element={<BreakfastDetail />} />
-                <Route path="/lunch" element={<Lunch />} />
-                <Route path="/lunch/:id" element={<LunchDetail />} />
-                <Route path="/dinner" element={<Dinner />} />
-                <Route path="/dinner/:id" element={<DinnerDetail />} />
+                <Route path="/:type" element={<RecipeList />} />
+                <Route path="/:type/:id" element={<RecipeDetail />} />
                 <Route path="/facts" element={<Facts />} />
                 <Route path="/general" element={<General />} />
                 <Route path="/random" element={<AutoGenerate />} />

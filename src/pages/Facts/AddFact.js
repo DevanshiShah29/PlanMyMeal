@@ -115,7 +115,7 @@ const AddFact = () => {
                           {...restField}
                           name={[name, 'question']}
                           label="Question"
-                          placeholder="e.g. What is the capital of France?"
+                          placeholder="e.g. What is the perfect plate?"
                           rules={[{ required: true, message: 'Please enter a question' }]}
                         />
                       </Col>
@@ -125,7 +125,7 @@ const AddFact = () => {
                           type="textarea"
                           name={[name, 'answer']}
                           label="Answer"
-                          placeholder="e.g. Paris"
+                          placeholder="e.g. Plate of food with fruits and vegetables..."
                           autoSize={{ minRows: 3, maxRows: 6 }}
                           rules={[{ required: true, message: 'Please enter an answer' }]}
                         />

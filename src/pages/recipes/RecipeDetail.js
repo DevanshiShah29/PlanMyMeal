@@ -10,11 +10,10 @@ import { message } from 'antd';
 // Helper Import
 import api from '../../utils/api';
 
-export default function DinnerDetail() {
-  const [currentItem, setCurrentItem] = useState([]);
-  const params = useParams();
+export default function RecipeDetail() {
+  const [currentItem, setCurrentItem] = useState({});
+  const { type, id } = useParams();
   const navigate = useNavigate();
-
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -24,26 +23,25 @@ export default function DinnerDetail() {
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
-        const res = await api('/recipes', { method: 'GET' });
-        const dinnerItems = res.filter((item) => item.type?.toLowerCase() === 'dinner');
-        const item = dinnerItems.find((item) => item._id === params.id);
-        setCurrentItem(item);
+        const res = await api(`/recipes?type=${type}`, { method: 'GET' });
+        const item = res.find((item) => item._id === id);
+        setCurrentItem(item || {});
       } catch (err) {
-        message.error('Error fetching recipes:', err);
+        message.error('Error fetching recipe');
       }
     };
 
     fetchRecipe();
-  }, [params.id]);
+  }, [type, id]);
 
-  const detectUrls = (data) => {
-    return data.includes('\n')
+  const detectUrls = (data) =>
+    data?.includes('\n')
       ? data.split('\n').map((desc, index) => {
           const key = index + 1;
           const parts = desc.split(/(https?:\/\/[^\s]+)/);
           const elements = parts.map((part) =>
-            /^https?:\/\/[^\s]+$/i.test(part) ? (
-              <a key={key} href={part} target="_blank" rel="noopener noreferrer">
+            /^https?:\/\/[^\s]+$/.test(part) ? (
+              <a key={part} href={part} target="_blank" rel="noopener noreferrer">
                 {part}
               </a>
             ) : (
@@ -57,7 +55,6 @@ export default function DinnerDetail() {
           );
         })
       : data;
-  };
 
   return (
     <div id="breakfastWrapperDetail">
@@ -70,26 +67,24 @@ export default function DinnerDetail() {
           <img src={currentItem.image} alt={currentItem.slug} />
         </div>
         <div className="detailInfo">
-          <div
-            className={`${currentItem.level === 'Easy' ? 'easy' : currentItem.level === 'Medium' ? 'medium' : 'hard'}`}
-          >
+          <div className={currentItem.level === 'Easy' ? 'easy' : currentItem.level === 'Medium' ? 'medium' : 'hard'}>
             <LocalDiningSharpIcon />
             {currentItem.level}
           </div>
 
-          <div className={`kcalCount`}>
+          <div className="kcalCount">
             <WhatshotIcon />
             {currentItem.calories} Cal
           </div>
         </div>
         <div className="ingredients">
           <h3>Ingredients</h3>
-          <ul className="disc">{currentItem?.ingredients && detectUrls(currentItem.ingredients)}</ul>
+          <ul className="disc">{detectUrls(currentItem.ingredients)}</ul>
         </div>
 
         <div className="preparation">
           <h3>Preparation</h3>
-          <ul className="numbers">{currentItem?.instructions && detectUrls(currentItem.instructions)}</ul>
+          <ul className="numbers">{detectUrls(currentItem.instructions)}</ul>
         </div>
       </div>
     </div>

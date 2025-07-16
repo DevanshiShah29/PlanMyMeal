@@ -175,22 +175,20 @@ const FactTable = () => {
         okText="Update"
         form={form}
       >
-        {/* <Form form={form} layout="vertical"> */}
         <CommonInput
           name="question"
           label="Question"
           rules={[{ required: true, message: 'Please enter a question' }]}
-          placeholder="e.g. What is the capital of France?"
+          placeholder="e.g. What is the perfect plate?"
         />
         <CommonInput
           name="answer"
           label="Answer"
           type="textarea"
-          placeholder="e.g. Paris"
+          placeholder="e.g. Plate of food with fruits and vegetables..."
           autoSize={{ minRows: 3, maxRows: 6 }}
           rules={[{ required: true, message: 'Please enter an answer' }]}
         />
-        {/* </Form> */}
       </CommonModal>
     </>
   );
