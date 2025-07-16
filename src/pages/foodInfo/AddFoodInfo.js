@@ -36,7 +36,7 @@ const AddFoodInfo = () => {
       message.success('Food cards added successfully!');
       navigate('/FoodInfoTable');
     } catch (err) {
-      message.error('Failed to add food cards.', err);
+      message.error(`Failed to add: ${err}`);
     } finally {
       setLoading(false);
     }
@@ -66,7 +66,7 @@ const AddFoodInfo = () => {
         message.error('AI failed to generate paragraph.');
       }
     } catch (err) {
-      message.error('Something went wrong.', err);
+      message.error(`Something went wrong ${err}`);
     } finally {
       setLoadingIndex(null);
     }

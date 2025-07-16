@@ -18,7 +18,7 @@ export default function General() {
         });
         setFoodData(res);
       } catch (err) {
-        message.error('Failed to load food information', err);
+        message.error(`Failed to load ${err}`);
       }
     };
 

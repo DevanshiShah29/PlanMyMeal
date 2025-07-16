@@ -32,7 +32,7 @@ const AddRecipe = () => {
         form.setFieldsValue(data);
         setIsEditMode(true);
       } catch (error) {
-        message.error('Failed to load recipe details');
+        message.error(`Failed to load ${error}`);
       } finally {
         setLoading(false);
       }
@@ -57,7 +57,7 @@ const AddRecipe = () => {
       navigate('/recipes');
       form.resetFields();
     } catch (error) {
-      message.error('Something went wrong. Please try again.', error);
+      message.error(`Something went wrong ${error}`);
     }
   };
 

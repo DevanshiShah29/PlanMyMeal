@@ -53,7 +53,7 @@ const FoodInfoTable = () => {
       setEditingFood(null);
       fetchFoodInfo();
     } catch (err) {
-      message.error('Failed to update food info');
+      message.error('Failed to update');
     }
   };
 
@@ -66,7 +66,7 @@ const FoodInfoTable = () => {
       setFoods(data);
       setFilteredData(data);
     } catch (err) {
-      message.error('Failed to load food info.', err);
+      message.error(`Failed to load ${err}`);
     } finally {
       setLoading(false);
     }
@@ -89,7 +89,7 @@ const FoodInfoTable = () => {
       message.success('Food info deleted');
       fetchFoodInfo();
     } catch (err) {
-      message.error('Failed to delete food info', err);
+      message.error(`Failed to delete ${err}`);
     }
   };
 

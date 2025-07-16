@@ -27,7 +27,7 @@ export default function RecipeDetail() {
         const item = res.find((item) => item._id === id);
         setCurrentItem(item || {});
       } catch (err) {
-        message.error('Error fetching recipe');
+        message.error(`Error fetching ${err}`);
       }
     };
 

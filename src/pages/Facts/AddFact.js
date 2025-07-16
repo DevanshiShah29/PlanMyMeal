@@ -35,7 +35,7 @@ const AddFact = () => {
       message.success('Facts added successfully!');
       navigate('/factsTable');
     } catch (err) {
-      message.error('Failed to add facts.', err);
+      message.error(`Failed to add: ${err}`);
     } finally {
       setLoading(false);
     }
@@ -66,7 +66,7 @@ const AddFact = () => {
         message.error('Failed to generate answer');
       }
     } catch (err) {
-      message.error('Something went wrong', err);
+      message.error(`Something went wrong ${err}`);
     } finally {
       setLoadingIndex(null);
     }

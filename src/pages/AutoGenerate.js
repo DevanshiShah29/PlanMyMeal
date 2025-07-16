@@ -34,7 +34,7 @@ export default function AutoGenerate() {
       const data = await api(`/recipes?type=${type}`, { method: 'GET' });
       return Array.isArray(data) ? data : [];
     } catch (err) {
-      message.error('Error fetching data:', err);
+      message.error(`Error fetching data: ${err}`);
       return [];
     }
   };
@@ -79,7 +79,7 @@ export default function AutoGenerate() {
       sessionStorage.setItem('lunch', JSON.stringify(randomLunch));
       sessionStorage.setItem('dinner', JSON.stringify(randomDinner));
     } catch (error) {
-      message.error('Error generating meals:', error);
+      message.error(`Error generating: ${error}`);
     } finally {
       setLoading(false);
     }
@@ -119,7 +119,7 @@ export default function AutoGenerate() {
       setAllRecipes(recipes);
       setIsModalOpen(true);
     } catch (error) {
-      message.error('Error fetching recipes:', error);
+      message.error(`Error fetching: ${error}`);
     }
   };
 

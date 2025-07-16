@@ -21,7 +21,7 @@ export default function Facts() {
         const data = await api('/facts', { method: 'GET' });
         setFaqs(data);
       } catch (error) {
-        message.error('Failed to fetch facts:', error);
+        message.error(`Failed to fetch: ${error}`);
       }
     };
 
@@ -81,7 +81,7 @@ export default function Facts() {
           </MuiAccordion>
         ))
       ) : (
-        <div className='emptyWrapper'>
+        <div className="emptyWrapper">
           <Empty description="No FAQs Found" />
         </div>
       )}

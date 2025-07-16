@@ -26,7 +26,7 @@ export default function RecipeList() {
         setAllData(recipes);
         setFilteredData(recipes);
       } catch (error) {
-        message.error('Error fetching recipes');
+        message.error(`Error fetching ${error}`);
         setAllData([]);
         setFilteredData([]);
       }
