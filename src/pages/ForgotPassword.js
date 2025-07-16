@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 // Library Imports
 import { Row, Col, Card, Typography, Form, message } from 'antd';
 import { MailOutlined } from '@ant-design/icons';
@@ -16,11 +18,14 @@ import login from '../assets/login.svg';
 const { Title, Paragraph } = Typography;
 
 const ForgotPassword = () => {
+  const [loading, setLoading] = useState(false);
+
   const [form] = Form.useForm();
 
   const handleFinish = async ({ email }) => {
     try {
-      const res = await api('/auth/forgot-password', {
+      setLoading(true);
+      const res = await api('/forgot-password', {
         method: 'POST',
         body: JSON.stringify({ email }),
       });
@@ -29,6 +34,8 @@ const ForgotPassword = () => {
       form.resetFields();
     } catch (err) {
       message.error(err.message || 'Email does not exist in our records');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -56,7 +63,7 @@ const ForgotPassword = () => {
                   inputProps={{ prefix: <MailOutlined /> }}
                 />
 
-                <CommonButton text="Send Password" htmlType="submit" block className="auth-btn" />
+                <CommonButton text="Send Password" htmlType="submit" block className="auth-btn" loading={loading} />
               </Form>
               <Paragraph className="auth-footer-text">
                 <span>Remembered your password?</span> <Link to="/login">Back to Login</Link>
