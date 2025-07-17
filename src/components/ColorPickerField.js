@@ -10,7 +10,7 @@ const ColorPickerField = ({ name, label }) => {
 
   return (
     <Form.Item label={label} name={name} rules={[{ required: true, message: `${label} is required` }]}>
-      <ColorPicker value={form.getFieldValue(name) || '#000000'} onChange={handleChange} showText />
+      <ColorPicker value={form.getFieldValue(name)} onChange={handleChange} showText />
     </Form.Item>
   );
 };

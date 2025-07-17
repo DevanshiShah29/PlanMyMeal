@@ -32,3 +32,5 @@ export const nutritionFields = [
   { name: 'fiber', label: 'Fiber (g)', placeholder: '5' },
   { name: 'vitamins', label: 'Vitamins', placeholder: 'A, C, K' },
 ];
+
+export const classificationOptions = ['Satvic', 'Rajasic', 'Tamasic'];

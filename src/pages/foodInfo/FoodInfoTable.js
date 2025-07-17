@@ -98,7 +98,7 @@ const FoodInfoTable = () => {
       title: 'Image',
       dataIndex: 'image',
       key: 'image',
-      width: 60,
+      width: 90,
       render: (url) => <MemoizedImage src={url} alt="food" className="recipe-img" />,
     },
     {

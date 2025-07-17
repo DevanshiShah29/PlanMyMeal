@@ -2,6 +2,9 @@
 import { Upload, Button, Space, Typography, Image, message } from 'antd';
 import { UploadOutlined, DeleteOutlined, PictureOutlined } from '@ant-design/icons';
 
+// Reusable Component
+import CommonButton from './CommonButton';
+
 const ImageUploader = ({
   file,
   setFile,
@@ -35,9 +38,12 @@ const ImageUploader = ({
         maxCount={1}
         className="fullWidthUpload"
       >
-        <Button type="dashed" icon={<UploadOutlined />} className="uploadButton">
-          {file ? 'Change Image' : label}
-        </Button>
+        <CommonButton
+          type="dashed"
+          icon={<UploadOutlined />}
+          className="uploadButton"
+          text={file ? 'Change Image' : label}
+        />
       </Upload>
 
       <div className="previewContainer">

@@ -103,7 +103,6 @@ const FactTable = () => {
       title: 'Answer',
       dataIndex: 'answer',
       key: 'answer',
-      width: 400,
       sorter: (a, b) => a.answer.localeCompare(b.answer),
     },
     {

@@ -194,7 +194,8 @@
       color: var(--white);
     }
   }
-  &.ant-btn-default {
+  &.ant-btn-default,
+  &.ant-btn-dashed {
     &:hover,
     &:focus {
       border-color: var(--main) !important;
@@ -220,7 +221,7 @@
   &.ant-input:focus-visible,
   textarea:focus {
     border-color: var(--main) !important;
-    box-shadow: 0 0 0 2px rgba(97, 95, 255, 0.2);
+    box-shadow: 0 0 0 2px rgba(97, 95, 255, 0.1);
     outline: none;
   }
   /* Hover style */
@@ -244,7 +245,7 @@
   &.ant-select:focus .ant-select-selector,
   &.ant-select-focused .ant-select-selector {
     border-color: var(--main) !important;
-    box-shadow: 0 0 0 2px rgba(97, 95, 255, 0.2) !important;
+    box-shadow: 0 0 0 2px rgba(97, 95, 255, 0.1) !important;
     outline: none;
   }
 }
@@ -436,5 +437,81 @@
 
   .recipe-tags {
     margin-top: 8px;
+  }
+}
+
+// Color picker styling
+.ant-color-picker-trigger {
+  width: 100%;
+  justify-content: flex-start;
+  min-height: 43px;
+  align-items: center;
+  padding: 8px 12px;
+
+  &:hover {
+    border-color: var(--main);
+  }
+
+  &:focus,
+  &:active,
+  &.ant-color-picker-trigger-active {
+    border-color: var(--main);
+    box-shadow: 0 0 0 2px rgba(97, 95, 255, 0.1) !important;
+    outline: none;
+  }
+
+  .ant-color-picker-clear {
+    height: 30px;
+    width: 30px;
+  }
+}
+
+// Chip styling
+.classification-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: 500;
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &__icon {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    border-radius: 50%;
+  }
+}
+.category-chip {
+  padding: 6px 20px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 14px;
+  margin: 6px 4px;
+  background: var(--lightMain);
+  border: none;
+}
+
+// Tabbing style
+.ant-tabs {
+  .ant-tabs-nav {
+    margin-bottom: 20px;
+  }
+  .ant-tabs-tab {
+    font-size: 16px;
+  }
+  .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    color: var(--main) !important;
+  }
+  .ant-tabs-ink-bar {
+    background: var(--main) !important;
+  }
+
+  .ant-tabs-tab:hover {
+    color: var(--main);
   }
 }

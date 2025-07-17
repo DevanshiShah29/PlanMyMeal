@@ -238,7 +238,7 @@ p.disc::before {
       color: var(--grey);
       position: fixed;
       width: -webkit-fill-available;
-      border-bottom: 1px solid #e0e4e8;
+      border-bottom: 1px solid var(--lightGrey);
       z-index: 100;
       display: flex;
       justify-content: space-between;
@@ -277,7 +277,9 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  transition: background-color 600000s 0s, color 600000s 0s;
+  transition:
+    background-color 600000s 0s,
+    color 600000s 0s;
   -webkit-text-fill-color: var(--black) !important;
   background-color: transparent !important;
 }

@@ -102,12 +102,14 @@ const CategoryTable = () => {
       title: 'Category',
       dataIndex: 'name',
       key: 'name',
+      width: 180,
       sorter: (a, b) => a.name.localeCompare(b.name),
     },
     {
       title: 'Description',
       dataIndex: 'description',
       key: 'description',
+      width: 200,
     },
     {
       title: 'Items',
@@ -115,7 +117,7 @@ const CategoryTable = () => {
       key: 'items',
       render: (items) =>
         items.map((item, index) => (
-          <Tag key={index} color="blue">
+          <Tag key={index} className="category-chip">
             {item}
           </Tag>
         )),
