@@ -198,6 +198,8 @@ const ClassificationTable = () => {
         rowKey={(record) => record._id}
         pagination={{ pageSize: 5 }}
         bordered={false}
+        scroll={{ x: true }}
+        style={{ width: '100%' }}
       />
 
       <CommonModal
