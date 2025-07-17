@@ -1,0 +1,218 @@
+import { useEffect, useState } from 'react';
+import { Table, Space, Input, Typography, Popconfirm, message, Row, Col, Card, Form, Tag, Select } from 'antd';
+import { SearchOutlined, PlusOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons';
+import api from '../../utils/api';
+import CommonButton from '../../components/CommonButton';
+import CommonInput from '../../components/CommonInput';
+import CommonModal from '../../components/CommonModal';
+import CommonSelect from '../../components/CommonSelect';
+
+const AyurvedaCategoryTable = () => {
+  const [categories, setCategories] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
+  const [searchText, setSearchText] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [editingCategory, setEditingCategory] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMode, setModalMode] = useState('edit');
+  const [form] = Form.useForm();
+
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+
+  const fetchCategories = async () => {
+    setLoading(true);
+    try {
+      const data = await api('/ayurveda', { method: 'GET' });
+      setCategories(data);
+      setFilteredData(data);
+    } catch (err) {
+      message.error(`Failed to load categories: ${err}`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSearch = (e) => {
+    const value = e.target.value.toLowerCase();
+    setSearchText(value);
+    const filtered = categories.filter(
+      (item) => item.name.toLowerCase().includes(value) || item.description.toLowerCase().includes(value),
+    );
+    setFilteredData(filtered);
+  };
+
+  const openEditModal = (category) => {
+    setModalMode('edit');
+    setEditingCategory(category);
+    form.setFieldsValue({
+      name: category.name,
+      description: category.description,
+      items: category.items || [],
+    });
+    setIsModalOpen(true);
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await api(`/ayurveda/${id}`, { method: 'DELETE' });
+      message.success('Category deleted');
+      fetchCategories();
+    } catch (err) {
+      message.error(`Failed to delete category`);
+    }
+  };
+
+  const handleModalSubmit = async () => {
+    try {
+      const values = await form.validateFields();
+      const payload = {
+        ...values,
+      };
+
+      if (modalMode === 'edit') {
+        await api(`/ayurveda/${editingCategory._id}`, {
+          method: 'PUT',
+          body: JSON.stringify(payload),
+        });
+        message.success('Category updated');
+      } else {
+        await api('/ayurveda', {
+          method: 'POST',
+          body: JSON.stringify(payload),
+        });
+        message.success('Category added');
+      }
+
+      setIsModalOpen(false);
+      setEditingCategory(null);
+      fetchCategories();
+    } catch (err) {
+      message.error(`Failed to ${modalMode === 'edit' ? 'update' : 'add'} category`);
+    }
+  };
+
+  const columns = [
+    {
+      title: 'Category',
+      dataIndex: 'name',
+      key: 'name',
+      sorter: (a, b) => a.name.localeCompare(b.name),
+    },
+    {
+      title: 'Description',
+      dataIndex: 'description',
+      key: 'description',
+    },
+    {
+      title: 'Items',
+      dataIndex: 'items',
+      key: 'items',
+      render: (items) =>
+        items.map((item, index) => (
+          <Tag key={index} color="blue">
+            {item}
+          </Tag>
+        )),
+    },
+    {
+      title: 'Actions',
+      key: 'actions',
+      render: (_, record) => (
+        <Space>
+          <CommonButton icon={<EditOutlined />} onClick={() => openEditModal(record)} type="default" />
+          <Popconfirm
+            title="Are you sure to delete this category?"
+            onConfirm={() => handleDelete(record._id)}
+            okText="Yes"
+            cancelText="No"
+          >
+            <CommonButton danger icon={<DeleteOutlined />} type="default" />
+          </Popconfirm>
+        </Space>
+      ),
+    },
+  ];
+
+  return (
+    <>
+      <div className="ayurveda-category-wrapper">
+        <Typography.Title level={2}>Ayurvedic Categories</Typography.Title>
+        <Typography.Text type="secondary">Manage all Ayurvedic categories</Typography.Text>
+
+        <Card style={{ marginTop: 24 }}>
+          <Row justify="space-between" align="middle" gutter={[16, 16]} style={{ margin: '0px -8px 24px' }}>
+            <Col flex="auto">
+              <Input
+                size="large"
+                placeholder="Search by category or description"
+                prefix={<SearchOutlined />}
+                value={searchText}
+                onChange={handleSearch}
+                allowClear
+              />
+            </Col>
+            <Col>
+              <CommonButton
+                size="large"
+                icon={<PlusOutlined />}
+                onClick={() => {
+                  form.resetFields();
+                  setEditingCategory(null);
+                  setModalMode('add');
+                  setIsModalOpen(true);
+                }}
+                text="Add Category"
+              />
+            </Col>
+          </Row>
+
+          <Table
+            loading={loading}
+            columns={columns}
+            dataSource={filteredData}
+            rowKey={(record) => record._id}
+            pagination={{ pageSize: 5 }}
+            bordered={false}
+          />
+        </Card>
+      </div>
+
+      <CommonModal
+        title={modalMode === 'edit' ? 'Edit Category' : 'Add Category'}
+        open={isModalOpen}
+        onCancel={() => setIsModalOpen(false)}
+        onOk={handleModalSubmit}
+        okText={modalMode === 'edit' ? 'Update' : 'Add'}
+        form={form}
+      >
+        <CommonInput
+          name="name"
+          label="Category"
+          placeholder="e.g. Fresh Fruits"
+          rules={[{ required: true, message: 'Category name is required' }]}
+        />
+        <CommonInput
+          name="description"
+          label="Description"
+          type="textarea"
+          placeholder="e.g. Naturally sweet, pure energy"
+          rules={[{ required: true, message: 'Description is required' }]}
+        />
+        <Form.Item label="Items" name="items" rules={[{ required: true, message: 'Please enter at least one item' }]}>
+          <CommonSelect
+            mode="tags"
+            placeholder="Type and press Enter"
+            tokenSeparators={[',']}
+            // showSearch={false}
+            // open={false}
+            // showArrow={false}
+          />
+        </Form.Item>
+      </CommonModal>
+    </>
+  );
+};
+
+export default AyurvedaCategoryTable;

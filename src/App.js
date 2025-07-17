@@ -34,6 +34,9 @@ import General from './pages/foodInfo/General';
 import FoodInfoTable from './pages/foodInfo/FoodInfoTable';
 import AddFoodInfo from './pages/foodInfo/AddFoodInfo';
 
+// Ayurveda pages
+import AyurvedaTable from './pages/ayurveda/AyurvedaTable';
+
 // Plan week page
 import AutoGenerate from './pages/AutoGenerate';
 
@@ -68,6 +71,7 @@ function App() {
                 <Route path="/add-fact" element={<AddFact />} />
                 <Route path="/FoodInfoTable" element={<FoodInfoTable />} />
                 <Route path="/add-food-info" element={<AddFoodInfo />} />
+                <Route path="/ayurvedaTable" element={<AyurvedaTable />} />
               </Route>
               <Route path="*" element={<ErrorPage />} />
             </Route>

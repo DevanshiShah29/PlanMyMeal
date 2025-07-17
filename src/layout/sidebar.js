@@ -6,6 +6,7 @@ import FactCheckTwoToneIcon from '@mui/icons-material/FactCheckTwoTone';
 import SchoolTwoToneIcon from '@mui/icons-material/SchoolTwoTone';
 import AutoAwesomeTwoToneIcon from '@mui/icons-material/AutoAwesomeTwoTone';
 import MenuTwoToneIcon from '@mui/icons-material/MenuTwoTone';
+import SpaIcon from '@mui/icons-material/Spa';
 import CloseIcon from '@mui/icons-material/Close';
 import { NavLink, useLocation, Navigate } from 'react-router-dom';
 
@@ -87,6 +88,17 @@ export default function Sidebar(props) {
                 role="button"
               >
                 <SchoolTwoToneIcon /> {expand && 'Food Info'}
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink
+                to="/ayurvedaTable"
+                className={({ isActive }) => (isActive ? 'navbar-item active' : 'navbar-item')}
+                onClick={regexp.test(details) ? handleToggleSidebar : undefined}
+                role="button"
+              >
+                <SpaIcon /> {expand && 'Ayurveda'}
               </NavLink>
             </li>
           </>

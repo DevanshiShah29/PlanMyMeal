@@ -14,6 +14,7 @@ import api from '../../utils/api';
 // Resuable Components
 import CommonButton from '../../components/CommonButton';
 import CommonInput from '../../components/CommonInput';
+import CommonSelect from '../../components/CommonSelect';
 
 const AddRecipe = () => {
   const [form] = Form.useForm();
@@ -91,13 +92,13 @@ const AddRecipe = () => {
                 label="Recipe Type"
                 rules={[{ required: true, message: 'Please select a recipe type' }]}
               >
-                <Select placeholder="Select recipe type">
-                  {recipeTypes.map((type) => (
-                    <Select.Option key={type} value={type}>
-                      {type}
-                    </Select.Option>
-                  ))}
-                </Select>
+                <CommonSelect
+                  placeholder="Select recipe type"
+                  options={recipeTypes.map((type) => ({
+                    value: type,
+                    label: type,
+                  }))}
+                />
               </Form.Item>
             </Col>
           </Row>
@@ -159,13 +160,13 @@ const AddRecipe = () => {
                 label="Cooking Time"
                 rules={[{ required: true, message: 'Please select cooking time' }]}
               >
-                <Select placeholder="Select cooking time">
-                  {cookingTimes.map((time) => (
-                    <Select.Option key={time} value={time}>
-                      {time}
-                    </Select.Option>
-                  ))}
-                </Select>
+                <CommonSelect
+                  placeholder="Select cooking time"
+                  options={cookingTimes.map((type) => ({
+                    value: type,
+                    label: type,
+                  }))}
+                />
               </Form.Item>
             </Col>
             <Col span={12}>
@@ -174,13 +175,13 @@ const AddRecipe = () => {
                 label="Difficulty Level"
                 rules={[{ required: true, message: 'Please select difficulty' }]}
               >
-                <Select placeholder="Select level">
-                  {difficultyLevels.map((level) => (
-                    <Select.Option key={level} value={level}>
-                      {level}
-                    </Select.Option>
-                  ))}
-                </Select>
+                <CommonSelect
+                  placeholder="Select level"
+                  options={difficultyLevels.map((type) => ({
+                    value: type,
+                    label: type,
+                  }))}
+                />
               </Form.Item>
             </Col>
           </Row>

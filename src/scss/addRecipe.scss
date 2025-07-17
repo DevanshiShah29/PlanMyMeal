@@ -22,15 +22,6 @@
   .ant-form {
     margin: 0 auto;
 
-    input,
-    .ant-select-selector {
-      min-height: 40px;
-    }
-
-    .ant-select-arrow {
-      top: 61%;
-    }
-
     .ant-select-dropdown {
       max-height: 150px;
       overflow-y: auto;
@@ -90,7 +81,8 @@
 .fact-table-wrapper,
 .food-info-table-wrapper,
 .add-fact-container,
-.add-food-info {
+.add-food-info,
+.ayurveda-category-wrapper {
   padding: 2rem;
   padding-top: 5rem;
 
@@ -235,6 +227,25 @@
   &.ant-input:hover,
   textarea:hover {
     border-color: var(--main) !important;
+  }
+}
+
+.common-select {
+  min-height: 43px;
+  font-size: 16px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &.ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+    border-color: var(--main) !important;
+  }
+
+  &.ant-select:focus .ant-select-selector,
+  &.ant-select-focused .ant-select-selector {
+    border-color: var(--main) !important;
+    box-shadow: 0 0 0 2px rgba(97, 95, 255, 0.2) !important;
+    outline: none;
   }
 }
 
