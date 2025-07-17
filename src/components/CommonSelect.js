@@ -1,6 +1,4 @@
 import { Select } from 'antd';
-import PropTypes from 'prop-types';
-
 const CommonSelect = ({
   mode,
   options = [],
@@ -30,17 +28,6 @@ const CommonSelect = ({
       {...props}
     />
   );
-};
-
-CommonSelect.propTypes = {
-  mode: PropTypes.oneOf(['tags', 'multiple']),
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.any.isRequired,
-      label: PropTypes.node.isRequired,
-    }),
-  ),
-  value: PropTypes.any,
 };
 
 export default CommonSelect;

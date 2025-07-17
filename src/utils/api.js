@@ -1,9 +1,11 @@
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 const api = async (endpoint, options = {}) => {
   try {
+    const isFormData = options.body instanceof FormData;
+
     const res = await fetch(`${BASE_URL}${endpoint}`, {
       headers: {
-        'Content-Type': 'application/json',
+        ...(isFormData ? {} : { 'Content-Type': 'application/json' }),
         ...(options.headers || {}),
       },
       ...options,
