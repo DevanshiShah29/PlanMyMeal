@@ -20,7 +20,7 @@ const AyurvedaCategoryTable = () => {
     <>
       <div className="category-wrapper">
         <Typography.Title level={2} className="table-heading">
-          Food Classification
+          Classification Management
         </Typography.Title>
         <Typography.Text type="secondary">
           Understanding the three gunas in food for optimal health and consciousness

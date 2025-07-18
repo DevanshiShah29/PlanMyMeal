@@ -141,7 +141,7 @@ const FoodInfoTable = () => {
     <>
       <div className="food-info-table-wrapper">
         <Typography.Title level={2} className="table-heading">
-          Food Info Management
+          Info Management
         </Typography.Title>
         <Typography.Text type="secondary">Manage all nutritional info cards in your database</Typography.Text>
 
