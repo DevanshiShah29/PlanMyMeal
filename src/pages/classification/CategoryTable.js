@@ -21,20 +21,39 @@ const CategoryTable = () => {
   const [editingCategory, setEditingCategory] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMode, setModalMode] = useState('edit');
+  const [classifications, setClassifications] = useState([]);
+
   const [form] = Form.useForm();
 
   useEffect(() => {
     fetchCategories();
+    fetchClassifications();
   }, []);
+
+  const fetchClassifications = async () => {
+    setLoading(true);
+    try {
+      const data = await api('/classifications', { method: 'GET' });
+      setClassifications(data);
+    } catch (err) {
+      message.error(`Failed to load classifications: ${err}`);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const fetchCategories = async () => {
     setLoading(true);
     try {
-      const data = await api('/ayurveda', { method: 'GET' });
-      setCategories(data);
-      setFilteredData(data);
+      const response = await api('/categories', { method: 'GET' });
+
+      const safeData = Array.isArray(response?.data) ? response.data : [];
+      setCategories(safeData);
+      setFilteredData(safeData);
     } catch (err) {
       message.error(`Failed to load categories: ${err}`);
+      setCategories([]);
+      setFilteredData([]);
     } finally {
       setLoading(false);
     }
@@ -44,7 +63,10 @@ const CategoryTable = () => {
     const value = e.target.value.toLowerCase();
     setSearchText(value);
     const filtered = categories.filter(
-      (item) => item.name.toLowerCase().includes(value) || item.description.toLowerCase().includes(value),
+      (item) =>
+        item.name.toLowerCase().includes(value) ||
+        item.description.toLowerCase().includes(value) ||
+        (item.classification && item.classification.name.toLowerCase().includes(value)),
     );
     setFilteredData(filtered);
   };
@@ -56,13 +78,14 @@ const CategoryTable = () => {
       name: category.name,
       description: category.description,
       items: category.items || [],
+      classification: category.classification?._id,
     });
     setIsModalOpen(true);
   };
 
   const handleDelete = async (id) => {
     try {
-      await api(`/ayurveda/${id}`, { method: 'DELETE' });
+      await api(`/categories/${id}`, { method: 'DELETE' });
       message.success('Category deleted');
       fetchCategories();
     } catch (err) {
@@ -73,16 +96,19 @@ const CategoryTable = () => {
   const handleModalSubmit = async () => {
     try {
       const values = await form.validateFields();
-      const payload = { ...values };
+      const payload = {
+        ...values,
+        ...(values.classification && { classification: values.classification }),
+      };
 
       if (modalMode === 'edit') {
-        await api(`/ayurveda/${editingCategory._id}`, {
+        await api(`/categories/${editingCategory._id}`, {
           method: 'PUT',
           body: JSON.stringify(payload),
         });
         message.success('Category updated');
       } else {
-        await api('/ayurveda', {
+        await api('/categories', {
           method: 'POST',
           body: JSON.stringify(payload),
         });
@@ -106,6 +132,14 @@ const CategoryTable = () => {
       sorter: (a, b) => a.name.localeCompare(b.name),
     },
     {
+      title: 'Classification',
+      dataIndex: ['classification', 'name'],
+      key: 'classification',
+      width: '15%',
+      render: (text) => text || '-',
+      sorter: (a, b) => (a.classification?.name || '').localeCompare(b.classification?.name || ''),
+    },
+    {
       title: 'Description',
       dataIndex: 'description',
       key: 'description',
@@ -115,7 +149,7 @@ const CategoryTable = () => {
       title: 'Items',
       dataIndex: 'items',
       key: 'items',
-      width: '50%',
+      width: '40%',
       render: (items) =>
         items.map((item, index) => (
           <Tag key={index} className="category-chip">
@@ -149,7 +183,7 @@ const CategoryTable = () => {
         <Col flex="auto">
           <Input
             size="large"
-            placeholder="Search by category or description"
+            placeholder="Search by category, classification or description"
             prefix={<SearchOutlined />}
             value={searchText}
             onChange={handleSearch}
@@ -195,6 +229,20 @@ const CategoryTable = () => {
           placeholder="e.g. Fresh Fruits"
           rules={[{ required: true, message: 'Category name is required' }]}
         />
+        <Form.Item
+          name="classification"
+          label="Classification"
+          rules={[{ required: true, message: 'Classification is required' }]}
+        >
+          <CommonSelect
+            placeholder="Select classification"
+            options={classifications.map((cls) => ({
+              value: cls._id,
+              label: cls.name,
+            }))}
+            allowClear
+          />
+        </Form.Item>
         <CommonInput
           name="description"
           label="Description"

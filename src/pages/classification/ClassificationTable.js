@@ -33,7 +33,7 @@ const ClassificationTable = () => {
   const fetchClassifications = async () => {
     setLoading(true);
     try {
-      const data = await api('/classification', { method: 'GET' });
+      const data = await api('/classifications', { method: 'GET' });
       setClassifications(data);
       setFilteredData(data);
     } catch (err) {
@@ -66,7 +66,7 @@ const ClassificationTable = () => {
   };
   const handleDelete = async (id) => {
     try {
-      await api(`/classification/${id}`, { method: 'DELETE' });
+      await api(`/classifications/${id}`, { method: 'DELETE' });
       message.success('Classification deleted');
       fetchClassifications();
     } catch (err) {
@@ -93,7 +93,7 @@ const ClassificationTable = () => {
         formData.append(key, val);
       });
 
-      const endpoint = modalMode === 'edit' ? `/classification/${editing._id}` : '/classification';
+      const endpoint = modalMode === 'edit' ? `/classifications/${editing._id}` : '/classifications';
 
       await api(endpoint, {
         method: modalMode === 'edit' ? 'PUT' : 'POST',

@@ -70,7 +70,7 @@
 .food-info-table-wrapper,
 .add-fact-container,
 .add-food-info,
-.ayurveda-category-wrapper {
+.category-wrapper {
   padding: 20px;
   padding-top: 5rem;
 
@@ -237,13 +237,12 @@
     outline: none;
   }
 
-  .ant-select-selector{
+  .ant-select-selector {
     min-height: 43px;
     .ant-select-selection-wrap {
       align-self: center;
     }
   }
-
 }
 
 .login-card {

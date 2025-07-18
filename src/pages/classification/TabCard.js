@@ -18,11 +18,13 @@ const AyurvedaCategoryTable = () => {
   ];
   return (
     <>
-      <div className="ayurveda-category-wrapper">
+      <div className="category-wrapper">
         <Typography.Title level={2} className="table-heading">
-          Ayurveda
+          Food Classification
         </Typography.Title>
-        <Typography.Text type="secondary">Manage all Ayurvedic categories</Typography.Text>
+        <Typography.Text type="secondary">
+          Understanding the three gunas in food for optimal health and consciousness
+        </Typography.Text>
 
         <Card style={{ marginTop: 24 }}>
           <Tabs defaultActiveKey="1" items={items} />
