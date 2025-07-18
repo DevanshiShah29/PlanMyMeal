@@ -102,19 +102,20 @@ const CategoryTable = () => {
       title: 'Category',
       dataIndex: 'name',
       key: 'name',
-      width: 180,
+      width: '20%',
       sorter: (a, b) => a.name.localeCompare(b.name),
     },
     {
       title: 'Description',
       dataIndex: 'description',
       key: 'description',
-      width: 200,
+      width: '20%',
     },
     {
       title: 'Items',
       dataIndex: 'items',
       key: 'items',
+      width: '50%',
       render: (items) =>
         items.map((item, index) => (
           <Tag key={index} className="category-chip">
@@ -125,6 +126,7 @@ const CategoryTable = () => {
     {
       title: 'Actions',
       key: 'actions',
+      width: '10%',
       render: (_, record) => (
         <Space>
           <CommonButton icon={<EditOutlined />} onClick={() => openEditModal(record)} type="default" />
@@ -177,7 +179,6 @@ const CategoryTable = () => {
         pagination={{ pageSize: 5 }}
         bordered={false}
         scroll={{ x: true }}
-        style={{ width: '100%' }}
       />
 
       <CommonModal

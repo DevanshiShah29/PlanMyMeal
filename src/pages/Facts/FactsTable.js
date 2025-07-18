@@ -96,19 +96,20 @@ const FactTable = () => {
       title: 'Question',
       dataIndex: 'question',
       key: 'question',
-      width: 400,
+      width: '35%',
       sorter: (a, b) => a.question.localeCompare(b.question),
     },
     {
       title: 'Answer',
       dataIndex: 'answer',
       key: 'answer',
+      width: '55%',
       sorter: (a, b) => a.answer.localeCompare(b.answer),
     },
     {
       title: 'Actions',
       key: 'actions',
-      width: 120,
+      width: '10%',
       render: (_, record) => (
         <Space>
           <CommonButton icon={<EditOutlined />} onClick={() => openEditModal(record)} type="default" />
@@ -163,8 +164,7 @@ const FactTable = () => {
             rowKey={(record) => record._id}
             pagination={{ pageSize: 5 }}
             bordered={false}
-            scroll={{ x: true }} 
-            style={{ width: '100%' }}
+            scroll={{ x: true }}
           />
         </Card>
       </div>

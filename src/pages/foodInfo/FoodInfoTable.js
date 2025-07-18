@@ -98,33 +98,32 @@ const FoodInfoTable = () => {
       title: 'Image',
       dataIndex: 'image',
       key: 'image',
-      width: 90,
+      width: '10%',
       render: (url) => <MemoizedImage src={url} alt="food" className="recipe-img" />,
     },
     {
       title: 'Front',
       dataIndex: 'frontParagraph',
       key: 'frontParagraph',
-      width: 300,
-      ellipsis: true,
+      width: '35%',
+      // ellipsis: true,
       sorter: (a, b) => a.frontParagraph.localeCompare(b.frontParagraph),
     },
     {
       title: 'Back',
       dataIndex: 'backParagraph',
       key: 'backParagraph',
-      width: 400,
-      ellipsis: true,
+      width: '45%',
+      // ellipsis: true,
       sorter: (a, b) => a.backParagraph.localeCompare(b.backParagraph),
     },
     {
       title: 'Actions',
       key: 'actions',
-      width: 120,
+      width: '10%',
       render: (_, record) => (
         <Space>
           <CommonButton icon={<EditOutlined />} onClick={() => openEditModal(record)} type="default" />
-
           <Popconfirm
             title="Are you sure you want to delete this food info?"
             onConfirm={() => handleDelete(record._id)}
@@ -176,7 +175,6 @@ const FoodInfoTable = () => {
             pagination={{ pageSize: 5 }}
             bordered={false}
             scroll={{ x: true }}
-            style={{ width: '100%' }}
           />
         </Card>
       </div>

@@ -115,7 +115,7 @@ const ClassificationTable = () => {
       title: 'Name',
       dataIndex: 'name',
       key: 'name',
-      width: 150,
+      width: '20%',
       sorter: (a, b) => a.name.localeCompare(b.name),
       // filters: classificationOptions.map((val) => ({ text: val, value: val })),
       // onFilter: (value, record) => record.name === value,
@@ -136,17 +136,18 @@ const ClassificationTable = () => {
       title: 'Sub Text',
       dataIndex: 'subText',
       key: 'subText',
-      width: 200,
+      width: '30%',
     },
     {
       title: 'Description',
       dataIndex: 'description',
       key: 'description',
+      width: '40%',
     },
     {
       title: 'Actions',
       key: 'actions',
-      width: 120,
+      width: '10%',
       render: (_, record) => (
         <Space>
           <CommonButton icon={<EditOutlined />} type="default" onClick={() => openEditModal(record)} />
@@ -199,7 +200,6 @@ const ClassificationTable = () => {
         pagination={{ pageSize: 5 }}
         bordered={false}
         scroll={{ x: true }}
-        style={{ width: '100%' }}
       />
 
       <CommonModal
