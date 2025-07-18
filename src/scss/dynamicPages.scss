@@ -16,7 +16,7 @@
   .card {
     flex: 1;
     background: var(--white);
-    border-radius: 16px;
+    border-radius: var(--radiusXl);
     overflow: hidden;
     position: relative;
     height: 390px;
@@ -29,7 +29,7 @@
       height: 330px;
       margin: 16px;
       height: calc(100% - 32px);
-      border-radius: 10px;
+      border-radius: var(--radiusMd);
       transition: all 0.5s ease;
       overflow: hidden;
 
@@ -47,7 +47,7 @@
 
       .title {
         text-align: justify;
-        font-size: 18px;
+        font-size: var(--fontSizeLg);
         font-weight: 500;
         color: var(--black);
       }
@@ -71,9 +71,9 @@
       height: 50px;
       bottom: 10px;
       right: 24px;
-      font-size: 20px;
+      font-size: var(--fontSizeLg);
       border: none;
-      border-radius: 50%;
+      border-radius: var(--radiusFull);
       cursor: pointer;
       opacity: 0;
       transition:
@@ -100,7 +100,7 @@
         transition: 0.3s;
 
         svg {
-          font-size: 26px;
+          font-size: var(--fontSize2xl);
           margin-top: 9px;
         }
       }
@@ -123,7 +123,7 @@
       width: calc(100% - 20px);
       background: var(--white);
       margin: 0px 0 20px;
-      border-radius: 8px;
+      border-radius: var(--radiusMd);
 
       svg {
         top: 18px;
@@ -141,7 +141,7 @@
 
     .input-box i {
       left: 20px;
-      font-size: 30px;
+      font-size: var(--fontSize4xl);
       color: var(--grey);
     }
 
@@ -149,7 +149,7 @@
       height: 100%;
       width: 100%;
       outline: none;
-      font-size: 16px;
+      font-size: var(--fontSizeMd);
       font-weight: 400;
       border: none;
       padding: 0 155px 0 50px;
@@ -161,12 +161,12 @@
     }
 
     .button {
-      font-size: 16px;
+      font-size: var(--fontSizeMd);
       font-weight: 400;
       color: var(--white);
       border: none;
       padding: 12px 30px;
-      border-radius: 8px;
+      border-radius: var(--radiusMd);
       background-color: var(--yellow);
       cursor: pointer;
       margin-bottom: 20px;
@@ -186,7 +186,7 @@
     .cardWrapper {
       width: calc(33.33% - 20px);
       box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-      border-radius: 8px;
+      border-radius: var(--radiusMd);
       position: relative;
       background-color: var(--white);
 
@@ -194,7 +194,7 @@
         transform 0.3s ease-in-out,
         box-shadow 0.3s ease-in-out;
       cursor: pointer;
-      border-radius: 8px;
+      border-radius: var(--radiusMd);
       overflow: hidden;
 
       @media only screen and (max-width: 767px) {
@@ -219,7 +219,7 @@
         opacity: 0.7;
         background-color: var(--white);
         padding: 8px;
-        border-radius: 20px;
+        border-radius: var(--radiusXl);
         top: 10px;
         left: 10px;
 
@@ -233,7 +233,7 @@
           margin-top: 4px;
           margin-right: 4px;
           display: inline;
-          font-size: 14px;
+          font-size: var(--fontSizeSm);
           vertical-align: middle;
         }
       }
@@ -250,7 +250,7 @@
         .ant-typography-ellipsis {
           padding: 20px 0;
           min-height: 95px;
-          font-size: 16px;
+          font-size: var(--fontSizeMd);
           margin-bottom: 10px;
 
           display: -webkit-box;
@@ -272,7 +272,7 @@
           display: inline-block;
 
           svg {
-            font-size: 16px;
+            font-size: var(--fontSizeMd);
             margin-bottom: -2px;
             margin-right: 5px;
           }
@@ -283,11 +283,11 @@
         .hard {
           text-transform: capitalize;
           padding: 10px 15px;
-          border-radius: 10px;
+          border-radius: var(--radiusMd);
           display: inline-block;
 
           svg {
-            font-size: 14px;
+            font-size: var(--fontSizeSm);
             margin-right: 5px;
           }
         }
@@ -313,7 +313,7 @@
           padding: 10px;
           color: var(--white);
           display: block;
-          border-radius: 10px;
+          border-radius: var(--radiusMd);
           text-align: center;
 
           position: absolute;
@@ -333,7 +333,7 @@
   .card {
     background-color: var(--white);
     padding: 30px;
-    border-radius: 8px;
+    border-radius: var(--radiusMd);
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
     @media only screen and (max-width: 767px) {
@@ -354,7 +354,7 @@
       }
 
       .title {
-        font-size: 20px;
+        font-size: var(--fontSizeLg);
       }
     }
 
@@ -362,7 +362,7 @@
       height: 350px;
       object-fit: cover;
       width: 100%;
-      border-radius: 8px;
+      border-radius: var(--radiusMd);
     }
 
     .detailInfo {
@@ -376,7 +376,7 @@
         display: inline-block;
 
         svg {
-          font-size: 16px;
+          font-size: var(--fontSizeMd);
           margin-bottom: -2px;
           margin-right: 5px;
         }
@@ -387,11 +387,11 @@
       .hard {
         text-transform: capitalize;
         padding: 5px 15px;
-        border-radius: 10px;
+        border-radius: var(--radiusMd);
         display: inline-block;
 
         svg {
-          font-size: 14px;
+          font-size: var(--fontSizeSm);
           margin-right: 5px;
         }
       }
@@ -429,8 +429,8 @@
       ul.disc li::before {
         display: inline-block;
         content: '';
-        -webkit-border-radius: 0.375rem;
-        border-radius: 50%;
+        -webkit-border-radius: var(--radiusFull);
+        border-radius: var(--radiusFull);
         height: 5px;
         width: 5px;
         margin-right: 0.5rem;
@@ -443,22 +443,21 @@
         padding: 7px 15px;
         text-indent: -0.75em;
         line-height: 1.6;
-        font-size: 16px;
+        font-size: var(--fontSizeMd);
       }
 
       ul.numbers > li {
         position: relative;
         counter-increment: step-counter;
-        font-size: 16px;
+        font-size: var(--fontSizeMd);
         padding: 7px 22px;
         line-height: 1.6;
-        font-size: 16px;
       }
 
       ul.numbers > li:before {
         color: var(--black);
         content: counter(step-counter) '.';
-        font-size: 16px;
+        font-size: var(--fontSizeMd);
         position: absolute;
         left: 2px;
         top: 7px;

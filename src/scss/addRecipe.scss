@@ -1,19 +1,7 @@
 .add-recipe-page {
-  padding: 2rem;
+  padding: 20px;
   padding-top: 5rem;
 
-  .title {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-
-  .subtitle {
-    text-align: center;
-    color: var(--grey);
-    margin-bottom: 2rem;
-  }
   .ant-card-head {
     padding: 0;
     min-height: auto;
@@ -65,7 +53,7 @@
       .ant-btn {
         padding: 0.8rem 2rem;
         font-weight: 500;
-        border-radius: 8px;
+        border-radius: var(--radiusMd);
         background: var(--main);
         border: none;
       }
@@ -83,11 +71,11 @@
 .add-fact-container,
 .add-food-info,
 .ayurveda-category-wrapper {
-  padding: 2rem;
+  padding: 20px;
   padding-top: 5rem;
 
   .ant-typography-secondary {
-    font-size: 14px;
+    font-size: var(--fontSizeSm);
   }
   .table-heading {
     margin-bottom: 0;
@@ -103,19 +91,19 @@
     width: 50px;
     height: 50px;
     object-fit: cover;
-    border-radius: 6px;
+    border-radius: var(--radiusSm);
   }
 }
 
 // AI Button Styles
 .generate-ai-btn {
   background: linear-gradient(270deg, var(--pink), var(--main));
-  color: white;
+  color: var(--white);
   font-weight: 600;
   border: none;
   padding: 0.6rem 1.5rem;
-  font-size: 16px;
-  border-radius: 8px;
+  font-size: var(--fontSizeMd);
+  border-radius: var(--radiusMd);
   position: relative;
   overflow: hidden;
   transition:
@@ -153,7 +141,7 @@
   }
 
   .ai-icon {
-    font-size: 18px;
+    font-size: var(--fontSizeLg);
     display: inline-block;
     animation: sparkle 1.8s infinite;
   }
@@ -212,7 +200,7 @@
 /* Override AntD input focus styles */
 .common-input {
   padding: 8px 12px;
-  font-size: 16px;
+  font-size: var(--fontSizeMd);
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease;
@@ -233,7 +221,7 @@
 
 .common-select {
   min-height: 43px;
-  font-size: 16px;
+  font-size: var(--fontSizeMd);
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease;
@@ -256,7 +244,7 @@
   box-shadow:
     0 10px 15px -3px var(--tw-shadow-color, var(--lightGrey)),
     0 4px 6px -4px var(--tw-shadow-color, var(--lightGrey));
-  border-radius: 10px;
+  border-radius: var(--radiusMd);
 
   img {
     width: 100%;
@@ -269,7 +257,7 @@
   padding: 60px 0;
   display: flex;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: var(--radiusMd);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin-top: 30px;
 }
@@ -278,7 +266,7 @@
 .auth-wrapper {
   min-height: 100vh;
   .auth-subtext {
-    font-size: 14px;
+    font-size: var(--fontSizeSm);
     color: var(--grey);
   }
 
@@ -295,7 +283,7 @@
     text-align: center;
     margin-top: 1rem;
     color: var(--grey);
-    font-size: 14px;
+    font-size: var(--fontSizeSm);
 
     a {
       cursor: pointer;
@@ -307,7 +295,7 @@
     right: 0;
     text-align: right;
     position: absolute;
-    font-size: 13px;
+    font-size: var(--fontSizeXs);
     margin: 0;
 
     a {
@@ -341,7 +329,7 @@
 
     &::-webkit-scrollbar-thumb {
       background-color: rgba(0, 0, 0, 0.2);
-      border-radius: 4px;
+      border-radius: var(--radiusSm);
     }
 
     &::-webkit-scrollbar-thumb:hover {
@@ -369,11 +357,11 @@
     .hard {
       text-transform: capitalize;
       padding: 5px 12px;
-      border-radius: 10px;
+      border-radius: var(--radiusMd);
       display: inline-block;
 
       svg {
-        font-size: 12px;
+        font-size: var(--fontSizeXs);
         margin-right: 5px;
       }
     }
@@ -400,7 +388,7 @@
       display: inline-block;
 
       svg {
-        font-size: 16px;
+        font-size: var(--fontSizeMd);
         margin-bottom: -2px;
         margin-right: 10px;
       }
@@ -417,7 +405,7 @@
     flex-shrink: 0;
     width: 100px;
     height: 80px;
-    border-radius: 4px;
+    border-radius: var(--radiusSm);
     overflow: hidden;
   }
 
@@ -472,7 +460,7 @@
   align-items: center;
   gap: 8px;
   padding: 8px 20px;
-  border-radius: 20px;
+  border-radius: var(--radiusXl);
   font-weight: 500;
   max-width: 300px;
   white-space: nowrap;
@@ -483,14 +471,14 @@
     width: 25px;
     height: 25px;
     object-fit: contain;
-    border-radius: 50%;
+    border-radius: var(--radiusFull);
   }
 }
 .category-chip {
   padding: 6px 20px;
-  border-radius: 20px;
+  border-radius: var(--radiusXl);
   font-weight: 500;
-  font-size: 14px;
+  font-size: var(--fontSizeSm);
   margin: 6px 4px;
   background: var(--lightMain);
   border: none;
@@ -502,7 +490,7 @@
     margin-bottom: 20px;
   }
   .ant-tabs-tab {
-    font-size: 16px;
+    font-size: var(--fontSizeMd);
   }
   .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
     color: var(--main) !important;

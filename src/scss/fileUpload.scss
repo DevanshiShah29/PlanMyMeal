@@ -10,7 +10,7 @@
   .uploadButton {
     width: 100%;
     height: 48px;
-    border-radius: 8px;
+    border-radius: var(--radiusMd);
     border-style: dashed;
     border-color: var(--ant-primary-color);
   }
@@ -21,7 +21,7 @@
     gap: 16px;
     padding: 12px;
     background-color: #fafafa;
-    border-radius: 8px;
+    border-radius: var(--radiusMd);
     border: 1px dashed var(--lightGrey);
     width: 100%;
   }
@@ -31,7 +31,7 @@
     align-items: center;
     justify-content: center;
     background-color: var(--white);
-    border-radius: 6px;
+    border-radius: var(--radiusSm);
     border: 1px solid var(--lightGrey);
     overflow: hidden;
     flex-shrink: 0;
@@ -44,7 +44,7 @@
   }
 
   .placeholderIcon {
-    font-size: 24px;
+    font-size: var(--fontSize2xl);
     color: var(--lightGrey);
   }
 
@@ -62,7 +62,7 @@
   }
 
   .fileSize {
-    font-size: 12px;
+    font-size: var(--fontSizeXs);
     color: var(--ant-text-color-secondary);
   }
 
@@ -71,7 +71,7 @@
   }
 
   .helpText {
-    font-size: 12px;
+    font-size: var(--fontSizeXs);
     color: var(--ant-text-color-secondary);
     margin-top: -8px;
   }

@@ -4,7 +4,7 @@
 
   .accordion {
     margin: 10px 0;
-    border-radius: 5px;
+    border-radius: var(--radiusSm);
     background: var(--white);
     box-shadow: none;
 
@@ -98,7 +98,7 @@
   .front,
   .back {
     display: flex;
-    border-radius: 6px;
+    border-radius: var(--radiusSm);
     background-position: center;
     background-size: cover;
     text-align: center;
@@ -119,7 +119,7 @@
   .front {
     background-size: cover;
     padding: 2rem;
-    font-size: 18px;
+    font-size: var(--fontSizeLg);
     font-weight: 600;
     color: var(--white);
     overflow: hidden;
@@ -149,7 +149,7 @@
     padding: 0 20px;
 
     p {
-      font-size: 14px;
+      font-size: var(--fontSizeSm);
     }
 
     .button {
@@ -160,58 +160,6 @@
 
   .card.flipcard .back {
     transform: rotateY(0deg);
-  }
-
-  .card:nth-child(even) .back .button {
-    background: linear-gradient(135deg, #e61a80, #e61a3c);
-  }
-
-  .button {
-    transform: translateZ(40px);
-    cursor: pointer;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    font-weight: bold;
-    color: var(--white);
-    padding: 0.5em 1em;
-    border-radius: 100px;
-    font: inherit;
-    border: none;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: 300ms ease;
-
-    &:before {
-      transition: 300ms ease;
-      position: absolute;
-      display: block;
-      content: '';
-      transform: translateZ(-40px);
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-      height: calc(100% - 20px);
-      width: calc(100% - 20px);
-      border-radius: 100px;
-      left: 10px;
-      top: 16px;
-    }
-
-    &:hover {
-      transform: translateZ(55px);
-
-      &:before {
-        transform: translateZ(-55px);
-      }
-    }
-
-    &:active {
-      transform: translateZ(20px);
-
-      &:before {
-        transform: translateZ(-20px);
-        top: 12px;
-      }
-    }
   }
 }
 
@@ -224,7 +172,7 @@
     display: grid;
     grid-template-rows: 3em 3em auto;
     border: 1px solid var(--lightGrey);
-    border-radius: 8px;
+    border-radius: var(--radiusMd);
     @media only screen and (max-width: 767px) {
       overflow-x: scroll;
     }
@@ -306,7 +254,7 @@
 
       .text {
         color: var(--black);
-        font-size: 16px;
+        font-size: var(--fontSizeMd);
         position: absolute;
         top: 50%;
         left: 50%;
@@ -345,7 +293,7 @@
 
     .time {
       text-align: right;
-      font-size: 80%;
+      font-size: var(--fontSizeXs);
       position: relative;
       color: #535659;
       padding-right: 2px;

@@ -15,12 +15,12 @@
       display: flex;
       justify-content: center;
       button {
-        font-size: 16px;
+        font-size: var(--fontSizeMd);
         font-weight: 400;
         color: var(--white);
         border: none;
         padding: 12px 30px;
-        border-radius: 8px;
+        border-radius: var(--radiusMd);
         background-color: var(--yellow);
         cursor: pointer;
       }
