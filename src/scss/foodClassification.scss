@@ -1,0 +1,132 @@
+.food-classification-wrapper {
+  padding: 20px;
+  padding-top: 5rem;
+
+  .equal-width-tabs {
+    .ant-tabs-nav {
+      margin: 0;
+      border-bottom: none;
+    }
+
+    .ant-tabs-nav-list {
+      display: flex !important;
+      width: 100%;
+      gap: 15px;
+    }
+
+    .ant-tabs-tab {
+      flex: 1;
+      padding: 0 0 20px;
+      margin: 0 !important;
+      border: none !important;
+      text-align: center;
+      transition:
+        opacity 0.4s ease-in-out,
+        transform 0.3s ease;
+      opacity: 0.75;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .ant-tabs-tab-active {
+      opacity: 1;
+    }
+
+    .ant-tabs-ink-bar {
+      display: none !important;
+    }
+
+    .ant-tabs-tab-btn {
+      width: 100%;
+      height: 100%;
+    }
+
+    .tab-span {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 12px 0px;
+      border-radius: var(--radiusMd);
+      width: 100%;
+    }
+
+    .name {
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: 5px;
+    }
+
+    .subText {
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    .img {
+      height: 24px;
+      margin-bottom: 4px;
+    }
+  }
+
+  .paragraph {
+    text-align: center;
+    padding: 24px;
+    max-width: 50%;
+    margin: 0 auto;
+
+    h2 {
+      font-weight: 600;
+      font-size: var(--fontSize2xl);
+    }
+  }
+
+  .category-card {
+    border-radius: var(--radiusMd);
+
+    .ant-card-body {
+      padding: 0 24px 24px;
+
+      p {
+        color: var(--grey);
+      }
+    }
+
+    .ant-card-head {
+      border-bottom: none;
+    }
+
+    .category-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      img {
+        height: 20px;
+        width: 20px;
+      }
+
+      span:first-child {
+        font-size: var(--fontSizeLg);
+      }
+
+      span:last-child {
+        font-weight: 600;
+        font-size: var(--fontSizeMd);
+      }
+    }
+
+    .category-tags {
+      display: flex;
+      flex-wrap: wrap;
+
+      .ant-tag {
+        background-color: var(--lightMain);
+        border: none;
+        border-radius: var(--radiusXl);
+        font-weight: 500;
+        padding: 2px 12px;
+      }
+    }
+  }
+}

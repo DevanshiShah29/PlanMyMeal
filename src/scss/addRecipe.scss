@@ -236,6 +236,14 @@
     box-shadow: 0 0 0 2px rgba(97, 95, 255, 0.1) !important;
     outline: none;
   }
+
+  .ant-select-selector{
+    min-height: 43px;
+    .ant-select-selection-wrap {
+      align-self: center;
+    }
+  }
+
 }
 
 .login-card {
