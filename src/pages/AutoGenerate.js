@@ -211,7 +211,7 @@ export default function AutoGenerate() {
     <div id="randomWrapper">
       <div className="headerWrapper">
         <h1 className="pageDescription">Plan my week</h1>
-        <div>
+        <div className='btnWrapper'>
           <CommonButton type="secondary" onClick={handleGenerate} loading={loading} text="Generate" />
           <CommonButton type="default" onClick={handleClear} text="Clear Week" />
         </div>

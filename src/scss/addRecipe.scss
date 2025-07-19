@@ -394,6 +394,11 @@
       border-left: 1px solid var(--lightGrey);
       display: inline-block;
 
+      @media only screen and (max-width: 767px) {
+        margin: 0;
+        padding: 0px 0 0 15px;
+      }
+
       svg {
         font-size: var(--fontSizeMd);
         margin-bottom: -2px;

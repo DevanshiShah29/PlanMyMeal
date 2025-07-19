@@ -10,7 +10,7 @@
 
     .MuiAccordionSummary-root {
       min-height: 48px;
-      border-bottom: 1px solid #d9d9d9;
+      border-bottom: 1px solid var(--lightGrey);
     }
 
     .MuiAccordionSummary-content {
@@ -166,6 +166,23 @@
 #randomWrapper {
   margin-top: 60px;
   padding: 20px;
+
+  .headerWrapper {
+    @media only screen and (max-width: 767px) {
+      display: block;
+    }
+    .btnWrapper {
+      @media only screen and (max-width: 767px) {
+        margin: 10px 0;
+      }
+
+      button {
+        @media only screen and (max-width: 767px) {
+          width: 48%;
+        }
+      }
+    }
+  }
 
   .container {
     width: 100%;
