@@ -43,7 +43,7 @@
     width: 100%;
     text-align: left;
     display: block;
-    font-weight: 600;
+    font-weight: var(--fontSemiBold);
     position: relative;
     color: var(--black);
     cursor: pointer;
@@ -120,7 +120,7 @@
     background-size: cover;
     padding: 2rem;
     font-size: var(--fontSizeLg);
-    font-weight: 600;
+    font-weight: var(--fontSemiBold);
     color: var(--white);
     overflow: hidden;
     font-family: 'Poppins', sans-serif;
@@ -226,7 +226,7 @@
       }
 
       .current {
-        font-weight: bold;
+        font-weight: var(--fontBold);
         color: var(--main);
       }
     }

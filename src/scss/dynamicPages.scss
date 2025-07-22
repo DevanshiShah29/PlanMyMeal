@@ -48,7 +48,7 @@
       .title {
         text-align: justify;
         font-size: var(--fontSizeLg);
-        font-weight: 500;
+        font-weight: var(--fontMedium);
         color: var(--black);
       }
 
@@ -150,7 +150,7 @@
       width: 100%;
       outline: none;
       font-size: var(--fontSizeMd);
-      font-weight: 400;
+      font-weight: var(--fontRegular);
       border: none;
       padding: 0 155px 0 50px;
       background-color: var(--trasparent);
@@ -162,7 +162,7 @@
 
     .button {
       font-size: var(--fontSizeMd);
-      font-weight: 400;
+      font-weight: var(--fontRegular);
       color: var(--white);
       border: none;
       padding: 12px 30px;
@@ -243,7 +243,7 @@
 
         h3 {
           margin: 5px 0 10px;
-          font-weight: bold;
+          font-weight: var(--fontBold);
         }
 
         p,
@@ -417,7 +417,7 @@
       margin-bottom: 20px;
 
       h3 {
-        font-weight: 500;
+        font-weight: var(--fontMedium);
         border-top: 1px solid var(--lightGrey);
         padding: 20px 0;
       }
@@ -461,6 +461,76 @@
         position: absolute;
         left: 2px;
         top: 7px;
+      }
+    }
+
+    .mediaSlider {
+      .sliderContent {
+        position: relative;
+        margin: 1rem 0;
+
+        img,
+        iframe {
+          width: 100%;
+          aspect-ratio: 35 / 9;
+          object-fit: cover;
+          border-radius: 12px;
+        }
+        .mediaFade {
+          width: 100%;
+          aspect-ratio: 35 / 9;
+          object-fit: cover;
+          border-radius: 12px;
+          transition: opacity 0.5s ease-in-out;
+          opacity: 0;
+          animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+          to {
+            opacity: 1;
+          }
+        }
+
+        .arrow {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background: rgba(0, 0, 0, 0.4);
+          border: none;
+          padding: 0.5rem;
+          color: var(--white);
+          cursor: pointer;
+          z-index: 1;
+
+          &.left {
+            left: 0.5rem;
+          }
+
+          &.right {
+            right: 0.5rem;
+          }
+        }
+      }
+
+      .sliderNav {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+
+        button {
+          width: 10px;
+          height: 10px;
+          border-radius: var(--radiusFull);
+          border: none;
+          background: var(--lightGrey);
+          cursor: pointer;
+
+          &.active {
+            background: var(--black);
+          }
+        }
       }
     }
   }

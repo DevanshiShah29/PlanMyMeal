@@ -2,25 +2,18 @@
   --main: #615fff;
   --mainHover: #4338ca;
   --lightMain: #e0e7ff;
-
   --pink: #ff6ec4;
   --yellow: #ecbd00;
-
   --white: #fff;
-  --black: #1c1c1c;
-
-  --grey: #3d3d3d;
   --lightGrey: #dfdfdf;
-
+  --grey: #3d3d3d;
+  --black: #1c1c1c;
   --mainHsl: rgb(99, 102, 241);
   --trasparent: transparent;
-
   --orange: #e38d5f;
   --lightOrange: #fef2ec;
-
   --green: #71e364;
   --lightGreen: #d3fdcb;
-
   --blue: #5e9bd0;
   --lightBlue: #c4e2fd;
 
@@ -35,6 +28,11 @@
   --radiusSm: 5px;
   --radiusFull: 50%;
   --radiusXl: 16px;
+
+  --fontRegular: 400;
+  --fontMedium: 500;
+  --fontSemiBold: 600;
+  --fontBold: 700;
 }
 
 $main: #615fff;

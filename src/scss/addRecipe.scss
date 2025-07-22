@@ -23,7 +23,7 @@
     .card-header {
       background: var(--main);
       color: var(--white);
-      font-weight: bold;
+      font-weight: var(--fontBold);
       padding: 0.8rem 1.2rem;
       border-top-left-radius: 8px;
       border-top-right-radius: 8px;
@@ -52,7 +52,7 @@
 
       .ant-btn {
         padding: 0.8rem 2rem;
-        font-weight: 500;
+        font-weight: var(--fontMedium);
         border-radius: var(--radiusMd);
         background: var(--main);
         border: none;
@@ -99,7 +99,7 @@
 .generate-ai-btn {
   background: linear-gradient(270deg, var(--pink), var(--main));
   color: var(--white);
-  font-weight: 600;
+  font-weight: var(--fontSemiBold);
   border: none;
   padding: 0.6rem 1.5rem;
   font-size: var(--fontSizeMd);
@@ -473,7 +473,7 @@
   gap: 8px;
   padding: 8px 20px;
   border-radius: var(--radiusXl);
-  font-weight: 500;
+  font-weight: var(--fontMediums);
   max-width: 300px;
   white-space: nowrap;
   overflow: hidden;
@@ -489,7 +489,7 @@
 .category-chip {
   padding: 6px 20px;
   border-radius: var(--radiusXl);
-  font-weight: 500;
+  font-weight: var(--fontMedium);
   font-size: var(--fontSizeSm);
   margin: 6px 4px;
   background: var(--lightMain);

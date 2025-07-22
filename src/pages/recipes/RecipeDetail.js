@@ -5,6 +5,8 @@ import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import WhatshotIcon from '@mui/icons-material/Whatshot';
 import LocalDiningSharpIcon from '@mui/icons-material/LocalDiningSharp';
 import ChevronLeftSharpIcon from '@mui/icons-material/ChevronLeftSharp';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { message } from 'antd';
 
 // Helper Import
@@ -12,6 +14,13 @@ import api from '../../utils/api';
 
 export default function RecipeDetail() {
   const [currentItem, setCurrentItem] = useState({});
+  const [slideIndex, setSlideIndex] = useState(0);
+
+  const slides = [
+    currentItem.image && { type: 'image', src: currentItem.image },
+    currentItem.youtubeLink && { type: 'video', src: currentItem.youtubeLink },
+  ].filter(Boolean);
+
   const { type, id } = useParams();
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -33,6 +42,11 @@ export default function RecipeDetail() {
 
     fetchRecipe();
   }, [type, id]);
+
+  const goPrev = () => setSlideIndex((prev) => (prev - 1 + slides.length) % slides.length);
+  const goNext = () => setSlideIndex((prev) => (prev + 1) % slides.length);
+  if (slides.length === 0) return null;
+  const showNav = slides.length > 1;
 
   const detectUrls = (data) =>
     data?.includes('\n')
@@ -63,8 +77,45 @@ export default function RecipeDetail() {
           <ChevronLeftSharpIcon onClick={() => navigate(-1)} />
           <div className="title">{currentItem.name}</div>
         </div>
-        <div className="image">
-          <img src={currentItem.image} alt={currentItem.slug} />
+
+        <div className="mediaSlider">
+          <div className="sliderContent">
+            {showNav && (
+              <button className="arrow left" onClick={goPrev}>
+                <ChevronLeftIcon />
+              </button>
+            )}
+
+            {slides[slideIndex].type === 'image' ? (
+              <img src={slides[slideIndex].src} alt="recipe" key={slideIndex} />
+            ) : (
+              <iframe
+                src={slides[slideIndex].src}
+                title="Recipe Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                key={slideIndex}
+              ></iframe>
+            )}
+
+            {showNav && (
+              <button className="arrow right" onClick={goNext}>
+                <ChevronRightIcon />
+              </button>
+            )}
+          </div>
+
+          {showNav && (
+            <div className="sliderNav">
+              {slides.map((_, idx) => (
+                <button
+                  key={idx}
+                  className={idx === slideIndex ? 'active' : ''}
+                  onClick={() => setSlideIndex(idx)}
+                ></button>
+              ))}
+            </div>
+          )}
         </div>
         <div className="detailInfo">
           <div className={currentItem.level === 'Easy' ? 'easy' : currentItem.level === 'Medium' ? 'medium' : 'hard'}>

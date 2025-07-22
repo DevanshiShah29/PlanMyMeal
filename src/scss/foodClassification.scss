@@ -54,13 +54,13 @@
 
     .name {
       font-size: 18px;
-      font-weight: 600;
+      font-weight: var(--fontSemiBold);
       margin-top: 5px;
     }
 
     .subText {
       font-size: 12px;
-      font-weight: 400;
+      font-weight: var(--fontRegular);
 
       @media only screen and (max-width: 767px) {
         display: none;
@@ -83,7 +83,7 @@
     }
 
     h2 {
-      font-weight: 600;
+      font-weight: var(--fontSemiBold);
       font-size: var(--fontSize2xl);
     }
   }
@@ -118,7 +118,7 @@
       }
 
       span:last-child {
-        font-weight: 600;
+        font-weight: var(--fontSemiBold);
         font-size: var(--fontSizeMd);
       }
     }
@@ -131,7 +131,7 @@
         background-color: var(--lightMain);
         border: none;
         border-radius: var(--radiusXl);
-        font-weight: 500;
+        font-weight: var(--fontMedium);
         padding: 2px 12px;
         margin: 0 5px 5px 0;
       }
