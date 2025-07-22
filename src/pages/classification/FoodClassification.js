@@ -49,8 +49,10 @@ const FoodClassification = () => {
     <div className="food-classification-wrapper">
       <h1 className="pageDescription">Food Classification</h1>
 
-      <Card style={{ marginTop: 24 }}>
-        <Spin spinning={loading}>
+      <Card className="card-wrapper">
+        {loading ? (
+          <Spin spinning={loading} size="large" className="loader" />
+        ) : (
           <Tabs defaultActiveKey="0" centered className="equal-width-tabs">
             {grouped.map((cls, index) => (
               <Tabs.TabPane
@@ -104,7 +106,7 @@ const FoodClassification = () => {
               </Tabs.TabPane>
             ))}
           </Tabs>
-        </Spin>
+        )}
       </Card>
     </div>
   );

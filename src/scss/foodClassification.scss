@@ -2,6 +2,16 @@
   padding: 20px;
   padding-top: 5rem;
 
+  .card-wrapper {
+    min-height: 70vh;
+    margin-top: 24px;
+
+    .loader {
+      margin: 20px auto;
+      width: 100%;
+    }
+  }
+
   .equal-width-tabs {
     .ant-tabs-nav {
       margin: 0;
