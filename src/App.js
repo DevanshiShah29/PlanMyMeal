@@ -25,9 +25,9 @@ import RecipeList from './pages/recipes/RecipeList';
 import RecipeDetail from './pages/recipes/RecipeDetail';
 
 // Facts pages
-import Facts from './pages/Facts/Facts';
-import FactsTable from './pages/Facts/FactsTable';
-import AddFact from './pages/Facts/AddFact';
+import Facts from './pages/facts/Facts';
+import FactsTable from './pages/facts/FactsTable';
+import AddFact from './pages/facts/AddFact';
 
 // Food info pages
 import General from './pages/foodInfo/General';

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 // Resusable Components
-import Sidebar from './sidebar';
+import Sidebar from './Sidebar';
 
 // Library Imports
 import { useNavigate, Outlet } from 'react-router-dom';
