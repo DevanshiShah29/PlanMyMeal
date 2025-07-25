@@ -27,7 +27,7 @@ import RecipeDetail from './pages/recipes/RecipeDetail';
 // Facts pages
 import FactsPage from './pages/facts/FactsPage';
 import FactsTable from './pages/facts/FactsTable';
-import AddFact from './pages/facts/AddFact';
+import AddFact from './pages/facts/AddFact'; 
 
 // Food info pages
 import General from './pages/foodInfo/General';
