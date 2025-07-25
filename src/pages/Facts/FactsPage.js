@@ -11,7 +11,7 @@ import { Empty, message } from 'antd';
 // Helper Imports
 import api from '../../utils/api';
 
-export default function Facts() {
+export default function FactsPage() {
   const [expanded, setExpanded] = useState(false);
   const [faqs, setFaqs] = useState([]);
 

@@ -93,12 +93,12 @@ export default function Sidebar(props) {
 
             <li>
               <NavLink
-                to="/ayurvedaTable"
+                to="/foodCategoryTable"
                 className={({ isActive }) => (isActive ? 'navbar-item active' : 'navbar-item')}
                 onClick={regexp.test(details) ? handleToggleSidebar : undefined}
                 role="button"
               >
-                <SpaIcon /> {expand && 'Ayurveda'}
+                <SpaIcon /> {expand && 'Food Classification'}
               </NavLink>
             </li>
           </>
@@ -149,14 +149,14 @@ export default function Sidebar(props) {
                 {expand && 'Auto generate'}
               </NavLink>
             </li>
-              <li>
+            <li>
               <NavLink
                 to="/foodClassification"
                 className={({ isActive }) => (isActive ? 'navbar-item active' : 'navbar-item')}
                 onClick={regexp.test(details) ? handleToggleSidebar : undefined}
                 role="button"
               >
-                <SpaIcon /> {expand && 'Ayurveda'}
+                <SpaIcon /> {expand && 'Food Classification'}
               </NavLink>
             </li>
           </>

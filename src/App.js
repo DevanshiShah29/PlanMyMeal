@@ -25,7 +25,7 @@ import RecipeList from './pages/recipes/RecipeList';
 import RecipeDetail from './pages/recipes/RecipeDetail';
 
 // Facts pages
-import Facts from './pages/facts/Facts';
+import FactsPage from './pages/facts/FactsPage';
 import FactsTable from './pages/facts/FactsTable';
 import AddFact from './pages/facts/AddFact';
 
@@ -35,7 +35,7 @@ import FoodInfoTable from './pages/foodInfo/FoodInfoTable';
 import AddFoodInfo from './pages/foodInfo/AddFoodInfo';
 
 // Classification pages
-import AyurvedaTable from './pages/classification/TabCard';
+import FoodTabCard from './pages/classification/TabCard';
 import FoodClassification from './pages/classification/FoodClassification';
 
 // Plan week page
@@ -60,7 +60,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/:type" element={<RecipeList />} />
                 <Route path="/:type/:id" element={<RecipeDetail />} />
-                <Route path="/facts" element={<Facts />} />
+                <Route path="/facts" element={<FactsPage />} />
                 <Route path="/general" element={<General />} />
                 <Route path="/foodClassification" element={<FoodClassification />} />
                 <Route path="/random" element={<AutoGenerate />} />
@@ -73,7 +73,7 @@ function App() {
                 <Route path="/add-fact" element={<AddFact />} />
                 <Route path="/FoodInfoTable" element={<FoodInfoTable />} />
                 <Route path="/add-food-info" element={<AddFoodInfo />} />
-                <Route path="/ayurvedaTable" element={<AyurvedaTable />} />
+                <Route path="/foodCategoryTable" element={<FoodTabCard />} />
               </Route>
               <Route path="*" element={<ErrorPage />} />
             </Route>

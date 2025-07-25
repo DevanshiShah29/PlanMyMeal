@@ -3,7 +3,7 @@ import { Typography, Card, Tabs } from 'antd';
 import CategoryTable from './CategoryTable';
 import ClassificationTable from './ClassificationTable';
 
-const AyurvedaCategoryTable = () => {
+const FoodCategoryTable = () => {
   const items = [
     {
       label: 'Classifications',
@@ -34,4 +34,4 @@ const AyurvedaCategoryTable = () => {
   );
 };
 
-export default AyurvedaCategoryTable;
+export default FoodCategoryTable;
