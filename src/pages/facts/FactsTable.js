@@ -70,6 +70,22 @@ const FactTable = () => {
     }
   };
 
+  const parseLinks = (text) => {
+    const parts = text.split(/(https?:\/\/[^\s]+)/g);
+
+    return parts.map((part, index) => {
+      if (/^https?:\/\/[^\s]+$/.test(part)) {
+        return (
+          <a key={index} href={part} target="_blank" rel="noopener noreferrer" className="highlighted-link">
+            {part}
+          </a>
+        );
+      } else {
+        return <span key={index}>{part}</span>;
+      }
+    });
+  };
+
   const handleSearch = (e) => {
     const value = e.target.value.toLowerCase();
     setSearchText(value);
@@ -105,6 +121,7 @@ const FactTable = () => {
       key: 'answer',
       width: '55%',
       sorter: (a, b) => a.answer.localeCompare(b.answer),
+      render: (text) => <div>{parseLinks(text)}</div>,
     },
     {
       title: 'Actions',
