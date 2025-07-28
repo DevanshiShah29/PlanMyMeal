@@ -228,7 +228,7 @@ const RecipeTable = () => {
               className="add-recipe-btn"
               icon={<PlusOutlined />}
               onClick={() => navigate('/add-recipe')}
-              text="Add Recipe"
+              text="Add"
             />
           </Col>
         </Row>

@@ -187,7 +187,7 @@ const ClassificationTable = () => {
               setModalMode('add');
               setIsModalOpen(true);
             }}
-            text="Add Classification"
+            text="Add"
           />
         </Col>
       </Row>

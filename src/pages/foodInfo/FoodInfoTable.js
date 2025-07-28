@@ -161,7 +161,7 @@ const FoodInfoTable = () => {
               <CommonButton
                 size="large"
                 icon={<PlusOutlined />}
-                text="Add Info"
+                text="Add"
                 onClick={() => navigate('/add-food-info')}
               />
             </Col>

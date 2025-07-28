@@ -170,7 +170,7 @@ const FactTable = () => {
                 className="add-fact-btn"
                 icon={<PlusOutlined />}
                 onClick={() => navigate('/add-fact')}
-                text="Add Fact"
+                text="Add"
               />
             </Col>
           </Row>

@@ -200,7 +200,7 @@ const CategoryTable = () => {
               setModalMode('add');
               setIsModalOpen(true);
             }}
-            text="Add Category"
+            text="Add"
           />
         </Col>
       </Row>
