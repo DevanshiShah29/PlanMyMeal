@@ -4,21 +4,25 @@ import { useState, useEffect } from 'react';
 import api from '../../utils/api';
 
 // Library Imports
-import { message, Empty } from 'antd';
+import { message, Empty, Spin } from 'antd';
 
 export default function General() {
   const [fliped, setFliped] = useState(0);
   const [foodData, setFoodData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
         const res = await api('/food-info', {
           method: 'GET',
         });
         setFoodData(res);
       } catch (err) {
         message.error(`Failed to load ${err}`);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -36,30 +40,32 @@ export default function General() {
   return (
     <div id="generalWrapper">
       <h1 className="pageDescription">Food Information</h1>
-      {Array.isArray(foodData) && foodData.length > 0 ? (
-        <div className="content">
-          {foodData.map((item) => (
-            <div
-              className={`${fliped === item._id ? 'flipcard card' : 'card'}`}
-              onClick={() => handleCardClick(item._id)}
-              key={item._id}
-            >
-              <div className="front" style={{ backgroundImage: `url(${item.image})` }}>
-                <p>{item.frontParagraph}</p>
-              </div>
-              <div className="back">
-                <div>
-                  <p>{item.backParagraph}</p>
+      <Spin spinning={loading} size="large" className="loader">
+        {Array.isArray(foodData) && foodData.length > 0 ? (
+          <div className="content">
+            {foodData.map((item) => (
+              <div
+                className={`${fliped === item._id ? 'flipcard card' : 'card'}`}
+                onClick={() => handleCardClick(item._id)}
+                key={item._id}
+              >
+                <div className="front" style={{ backgroundImage: `url(${item.image})` }}>
+                  <p>{item.frontParagraph}</p>
+                </div>
+                <div className="back">
+                  <div>
+                    <p>{item.backParagraph}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div className="emptyWrapper">
-          <Empty description="No food data found" />
-        </div>
-      )}
+            ))}
+          </div>
+        ) : (
+          <div className="emptyWrapper">
+            <Empty description="No food data found" />
+          </div>
+        )}
+      </Spin>
     </div>
   );
 }

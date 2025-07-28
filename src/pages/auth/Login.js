@@ -1,8 +1,7 @@
 // Library Imports
-import { Row, Col, Card, Typography, Form } from 'antd';
+import { Row, Col, Card, Typography, Form, message } from 'antd';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { useNavigate, Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
 // Reusable Components
 import CommonInput from '../../components/CommonInput';
@@ -33,10 +32,10 @@ const Login = () => {
       localStorage.setItem('role', res.role);
       localStorage.setItem('username', res.username);
 
-      toast.success('Login successful!');
+      message.success('Login successful!');
       navigate(res.role === 'admin' ? '/recipes' : '/');
     } catch (err) {
-      toast.error('Login failed!');
+      message.error('Login failed!');
     }
   };
 

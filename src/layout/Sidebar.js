@@ -61,7 +61,11 @@ export default function Sidebar(props) {
             <li>
               <NavLink
                 to="/recipes"
-                className={({ isActive }) => (isActive ? 'navbar-item active' : 'navbar-item')}
+                className={({ isActive }) =>
+                  isActive || pathname === '/recipes' || pathname === '/add-recipe'
+                    ? 'navbar-item active'
+                    : 'navbar-item'
+                }
                 onClick={regexp.test(details) ? handleToggleSidebar : undefined}
                 role="button"
               >
@@ -72,7 +76,11 @@ export default function Sidebar(props) {
             <li>
               <NavLink
                 to="/factsTable"
-                className={({ isActive }) => (isActive ? 'navbar-item active' : 'navbar-item')}
+                className={({ isActive }) =>
+                  isActive || pathname === '/factsTable' || pathname === '/add-fact'
+                    ? 'navbar-item active'
+                    : 'navbar-item'
+                }
                 onClick={regexp.test(details) ? handleToggleSidebar : undefined}
                 role="button"
               >
@@ -83,7 +91,11 @@ export default function Sidebar(props) {
             <li>
               <NavLink
                 to="/FoodInfoTable"
-                className={({ isActive }) => (isActive ? 'navbar-item active' : 'navbar-item')}
+                className={({ isActive }) =>
+                  isActive || pathname === '/FoodInfoTable' || pathname === '/add-food-info'
+                    ? 'navbar-item active'
+                    : 'navbar-item'
+                }
                 onClick={regexp.test(details) ? handleToggleSidebar : undefined}
                 role="button"
               >
@@ -108,7 +120,15 @@ export default function Sidebar(props) {
               <NavLink
                 to="/"
                 className={({ isActive }) =>
-                  isActive || pathname === '/breakfast' || pathname === '/lunch' || pathname === '/dinner'
+                  isActive ||
+                  pathname === '/breakfast' ||
+                  pathname === '/lunch' ||
+                  pathname === '/dinner' ||
+                  pathname === '/dessert' ||
+                  pathname === '/appetizer' ||
+                  pathname === '/salad' ||
+                  pathname === '/soup' ||
+                  pathname === '/beverage'
                     ? 'navbar-item active'
                     : 'navbar-item'
                 }

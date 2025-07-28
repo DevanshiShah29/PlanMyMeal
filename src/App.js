@@ -3,8 +3,6 @@ import 'antd/dist/reset.css';
 import './App.css';
 import './scss/App.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 import Home from './pages/Home';
 import ErrorPage from './pages/ErrorPage';
@@ -27,7 +25,7 @@ import RecipeDetail from './pages/recipes/RecipeDetail';
 // Facts pages
 import FactsPage from './pages/facts/FactsPage';
 import FactsTable from './pages/facts/FactsTable';
-import AddFact from './pages/facts/AddFact'; 
+import AddFact from './pages/facts/AddFact';
 
 // Food info pages
 import General from './pages/foodInfo/General';
@@ -47,7 +45,6 @@ import SideBarLayout from './layout/Header';
 function App() {
   return (
     <>
-      <ToastContainer />
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
