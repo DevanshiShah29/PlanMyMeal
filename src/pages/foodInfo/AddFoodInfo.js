@@ -34,7 +34,7 @@ const AddFoodInfo = () => {
       });
 
       message.success('Food cards added successfully!');
-      navigate('/FoodInfoTable');
+      navigate('/info-management');
     } catch (err) {
       message.error(`Failed to add: ${err}`);
     } finally {
@@ -170,7 +170,7 @@ const AddFoodInfo = () => {
 
           <Row justify="end" gutter={12}>
             <Col>
-              <CommonButton type="default" onClick={() => navigate('/FoodInfoTable')} text="Cancel" />
+              <CommonButton type="default" onClick={() => navigate('/info-management')} text="Cancel" />
             </Col>
             <Col>
               <CommonButton type="primary" htmlType="submit" loading={loading} text="Submit" />

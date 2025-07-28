@@ -33,7 +33,7 @@ const AddFact = () => {
         body: JSON.stringify({ facts }),
       });
       message.success('Facts added successfully!');
-      navigate('/factsTable');
+      navigate('/facts-management');
     } catch (err) {
       message.error(`Failed to add: ${err}`);
     } finally {
@@ -149,7 +149,7 @@ const AddFact = () => {
 
           <Row justify="end" gutter={12}>
             <Col>
-              <CommonButton type="default" onClick={() => navigate('/factsTable')} text="Cancel" />
+              <CommonButton type="default" onClick={() => navigate('/facts-management')} text="Cancel" />
             </Col>
             <Col>
               <CommonButton type="primary" htmlType="submit" loading={loading} text="Submit" />

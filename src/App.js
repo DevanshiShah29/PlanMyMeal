@@ -59,18 +59,18 @@ function App() {
                 <Route path="/:type/:id" element={<RecipeDetail />} />
                 <Route path="/facts" element={<FactsPage />} />
                 <Route path="/general" element={<General />} />
-                <Route path="/foodClassification" element={<FoodClassification />} />
+                <Route path="/categories" element={<FoodClassification />} />
                 <Route path="/random" element={<AutoGenerate />} />
               </Route>
               <Route element={<AdminRoute />}>
                 <Route path="/add-recipe" element={<AddRecipe />} />
                 <Route path="/edit/:id" element={<AddRecipe />} />
                 <Route path="/recipes" element={<Recipes />} />
-                <Route path="/factsTable" element={<FactsTable />} />
+                <Route path="/facts-management" element={<FactsTable />} />
                 <Route path="/add-fact" element={<AddFact />} />
-                <Route path="/FoodInfoTable" element={<FoodInfoTable />} />
+                <Route path="/info-management" element={<FoodInfoTable />} />
                 <Route path="/add-food-info" element={<AddFoodInfo />} />
-                <Route path="/foodCategoryTable" element={<FoodTabCard />} />
+                <Route path="/category-management" element={<FoodTabCard />} />
               </Route>
               <Route path="*" element={<ErrorPage />} />
             </Route>

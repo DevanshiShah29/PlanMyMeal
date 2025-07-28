@@ -75,9 +75,9 @@ export default function Sidebar(props) {
 
             <li>
               <NavLink
-                to="/factsTable"
+                to="/facts-management"
                 className={({ isActive }) =>
-                  isActive || pathname === '/factsTable' || pathname === '/add-fact'
+                  isActive || pathname === '/facts-management' || pathname === '/add-fact'
                     ? 'navbar-item active'
                     : 'navbar-item'
                 }
@@ -90,9 +90,9 @@ export default function Sidebar(props) {
 
             <li>
               <NavLink
-                to="/FoodInfoTable"
+                to="/info-management"
                 className={({ isActive }) =>
-                  isActive || pathname === '/FoodInfoTable' || pathname === '/add-food-info'
+                  isActive || pathname === '/info-management' || pathname === '/add-food-info'
                     ? 'navbar-item active'
                     : 'navbar-item'
                 }
@@ -105,7 +105,7 @@ export default function Sidebar(props) {
 
             <li>
               <NavLink
-                to="/foodCategoryTable"
+                to="/category-management"
                 className={({ isActive }) => (isActive ? 'navbar-item active' : 'navbar-item')}
                 onClick={regexp.test(details) ? handleToggleSidebar : undefined}
                 role="button"
@@ -171,7 +171,7 @@ export default function Sidebar(props) {
             </li>
             <li>
               <NavLink
-                to="/foodClassification"
+                to="/categories"
                 className={({ isActive }) => (isActive ? 'navbar-item active' : 'navbar-item')}
                 onClick={regexp.test(details) ? handleToggleSidebar : undefined}
                 role="button"
