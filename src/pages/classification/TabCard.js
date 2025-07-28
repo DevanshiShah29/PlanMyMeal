@@ -20,11 +20,9 @@ const FoodCategoryTable = () => {
     <>
       <div className="category-wrapper">
         <Typography.Title level={2} className="table-heading">
-          Classification Management
+          Food Categories
         </Typography.Title>
-        <Typography.Text type="secondary">
-          Understanding the three gunas in food for optimal health and consciousness
-        </Typography.Text>
+        <Typography.Text type="secondary">Food’s Energetic Qualities</Typography.Text>
 
         <Card style={{ marginTop: 24 }}>
           <Tabs defaultActiveKey="1" items={items} />

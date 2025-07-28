@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Table, Input, Space, Typography, Popconfirm, message, Row, Col, Card } from 'antd';
 import { SearchOutlined, PlusOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
+import moment from 'moment';
 
 // Resusable Components
 import MemoizedImage from '../../components/MemoizedImage';
@@ -114,7 +115,7 @@ const RecipeTable = () => {
       dataIndex: 'createdAt',
       key: 'createdAt',
       width: 100,
-      render: (text) => new Date(text).toLocaleDateString(),
+      render: (text) => moment(text).format('Do MMMM YYYY'),
       sorter: (a, b) => new Date(a.createdAt) - new Date(b.createdAt),
     },
     {

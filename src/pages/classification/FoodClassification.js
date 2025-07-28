@@ -47,7 +47,7 @@ const FoodClassification = () => {
 
   return (
     <div className="food-classification-wrapper">
-      <h1 className="pageDescription">Food Classification</h1>
+      <h1 className="pageDescription">Food Categories</h1>
 
       <Card className="card-wrapper">
         {loading ? (

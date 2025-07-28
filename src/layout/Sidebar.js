@@ -84,7 +84,7 @@ export default function Sidebar(props) {
                 onClick={regexp.test(details) ? handleToggleSidebar : undefined}
                 role="button"
               >
-                <FactCheckTwoToneIcon /> {expand && 'Facts'}
+                <FactCheckTwoToneIcon /> {expand && 'Health Facts'}
               </NavLink>
             </li>
 
@@ -99,7 +99,7 @@ export default function Sidebar(props) {
                 onClick={regexp.test(details) ? handleToggleSidebar : undefined}
                 role="button"
               >
-                <SchoolTwoToneIcon /> {expand && 'Food Info'}
+                <SchoolTwoToneIcon /> {expand && 'Nutrition Guide'}
               </NavLink>
             </li>
 
@@ -110,7 +110,7 @@ export default function Sidebar(props) {
                 onClick={regexp.test(details) ? handleToggleSidebar : undefined}
                 role="button"
               >
-                <SpaIcon /> {expand && 'Food Classification'}
+                <SpaIcon /> {expand && 'Food Categories'}
               </NavLink>
             </li>
           </>
@@ -135,7 +135,7 @@ export default function Sidebar(props) {
                 onClick={regexp.test(details) ? handleToggleSidebar : undefined}
                 role="button"
               >
-                <HomeTwoToneIcon /> {expand && 'Home'}
+                <HomeTwoToneIcon /> {expand && 'Meal Plans'}
               </NavLink>
             </li>
             <li>
@@ -145,7 +145,7 @@ export default function Sidebar(props) {
                 role="button"
                 onClick={regexp.test(details) ? handleToggleSidebar : undefined}
               >
-                <FactCheckTwoToneIcon /> {expand && 'Facts'}
+                <FactCheckTwoToneIcon /> {expand && 'Health Facts'}
               </NavLink>
             </li>
             <li>
@@ -155,7 +155,7 @@ export default function Sidebar(props) {
                 role="button"
                 onClick={regexp.test(details) ? handleToggleSidebar : undefined}
               >
-                <SchoolTwoToneIcon /> {expand && 'General'}
+                <SchoolTwoToneIcon /> {expand && 'Nutrition Guide'}
               </NavLink>
             </li>
             <li>
@@ -166,7 +166,7 @@ export default function Sidebar(props) {
                 onClick={regexp.test(details) ? handleToggleSidebar : undefined}
               >
                 <AutoAwesomeTwoToneIcon />
-                {expand && 'Auto generate'}
+                {expand && 'Meal Generator'}
               </NavLink>
             </li>
             <li>
@@ -176,7 +176,7 @@ export default function Sidebar(props) {
                 onClick={regexp.test(details) ? handleToggleSidebar : undefined}
                 role="button"
               >
-                <SpaIcon /> {expand && 'Food Classification'}
+                <SpaIcon /> {expand && 'Food Categories'}
               </NavLink>
             </li>
           </>
